@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Products - OT Resource Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Snipcart CSS + JS (free, safe, used by 50k+ shops) -->
+    <link rel="preconnect" href="https://app.snipcart.com">
+    <link rel="preconnect" href="https://cdn.snipcart.com">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
+    <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
+
+    <style>
+        .products-hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2.5rem auto;
+            max-width: 1200px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .products-hero h1 { font-size: 3rem; color: #1a3e72; margin-bottom: 1rem; }
+        .products-hero p { font-size: 1.3rem; color: #444; max-width: 800px; margin: 0 auto; }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .product-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-info h3 {
+            font-size: 1.4rem;
+            color: #1a3e72;
+            margin: 0 0 0.8rem;
+        }
+        .price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #007bff;
+            margin: 0.5rem 0;
+        }
+        .snipcart-add-item {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        .snipcart-add-item:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+                    <span class="logo-text">OT Resource Hub</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource.html">Resources</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <!-- Snipcart Cart Button -->
+            <div class="snipcart-checkout" style="cursor:pointer;">
+                <strong>Cart (<span class="snipcart-items-count">0</span>)</strong>
+            </div>
+        </nav>
+    </header>
+
+    <section class="products-hero">
+        <h1>Shop Our Products</h1>
+        <p>Digital downloads, therapy tools, and sensory resources created by licensed OTs.</p>
+    </section>
+
+    <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/400x300/1a3e72/ffffff?text=Sensory+Pack" alt="Sensory Pack">
+            <div class="product-info">
+                <h3>Ultimate Sensory Pack</h3>
+                <p class="price">$19.99</p>
+                <button class="snipcart-add-item"
+                    data-item-id="sensory-pack-01"
+                    data-item-price="19.99"
+                    data-item-url="/products.html"
+                    data-item-name="Ultimate Sensory Pack"
+                    data-item-description="50+ printable sensory activities">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/400x300/007bff/ffffff?text=Executive+Function" alt="Executive Function">
+            <div class="product-info">
+                <h3>Executive Function Toolkit</h3>
+                <p class="price">$24.99</p>
+                <button class="snipcart-add-item"
+                    data-item-id="ef-toolkit-01"
+                    data-item-price="24.99"
+                    data-item-url="/products.html"
+                    data-item-name="Executive Function Toolkit">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/400x300/28a745/ffffff?text=Fine+Motor" alt="Fine Motor">
+            <div class="product-info">
+                <h3>Fine Motor Mastery Bundle</h3>
+                <p class="price">$15.00</p>
+                <button class="snipcart-add-item"
+                    data-item-id="fine-motor-01"
+                    data-item-price="15.00"
+                    data-item-url="/products.html"
+                    data-item-name="Fine Motor Mastery Bundle">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <!-- Add more products just by copying the block above -->
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Snipcart Hidden Config (required) -->
+    <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_TEST_KEY_HERE">
+    </div>
+</body>
+</html>

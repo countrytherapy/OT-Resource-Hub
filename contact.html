@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - OT Resource Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 5rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2.5rem auto;
+            max-width: 1200px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .contact-hero h1 {
+            font-size: 3rem;
+            color: #1a3e72;
+            margin-bottom: 1rem;
+        }
+        .contact-hero p {
+            font-size: 1.3rem;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: #1a3e72;
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 4px rgba(0,123,255,0.15);
+        }
+
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,123,255,0.3);
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+                    <span class="logo-text">OT Resource Hub</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource.html">Resources</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <h1>Get in Touch</h1>
+        <p>We'd love to hear from you! Whether you have a question about our resources, need support, or just want to say hello — we're here to help.</p>
+    </section>
+
+    <!-- Contact Form -->
+    <div class="contact-container">
+        <form class="contact-form" name="contact" netlify netlify-honeypot="bot-field" action="/thank-you.html" method="POST">
+            <input type="hidden" name="form-name" value="contact">
+
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required placeholder="Hi there! I'd love to know more about..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+
+            <div class="success-message" id="success">
+                Thank you! Your message has been sent successfully. We'll get back to you soon!
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms_of_service.html">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Optional: Show success message without redirect -->
+    <script>
+        const form = document.querySelector('form');
+        const success = document.getElementById('success');
+
+        form.addEventListener('submit', function(e) {
+            // Remove this if using Netlify redirect
+            // e.preventDefault();
+            setTimeout(() => {
+                success.style.display = 'block';
+                form.reset();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

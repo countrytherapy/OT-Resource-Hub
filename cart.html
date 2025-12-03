@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - OT Resource Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Snipcart CSS & JS -->
+    <link rel="preconnect" href="https://app.snipcart.com">
+    <link rel="preconnect" href="https://cdn.snipcart.com">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
+    <script async src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js"></script>
+
+    <style>
+        .cart-hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2.5rem auto;
+            max-width: 1200px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .cart-hero h1 {
+            font-size: 2.8rem;
+            color: #1a3e72;
+            margin-bottom: 0.5rem;
+        }
+        .cart-hero p {
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .cart-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .empty-cart h2 {
+            color: #1a3e72;
+            margin-bottom: 1rem;
+        }
+        .empty-cart a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: #007bff;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .empty-cart a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+                    <span class="logo-text">OT Resource Hub</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resource.html">Resources</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="snipcart-checkout" style="cursor:pointer; font-weight:600;">
+                Cart (<span class="snipcart-items-count">0</span>)
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="cart-hero">
+        <h1>Your Shopping Cart</h1>
+        <p>Review your items and proceed to secure checkout</p>
+    </section>
+
+    <div class="cart-container">
+        <!-- Snipcart will automatically inject the full cart here -->
+        <div class="snipcart-cart">
+            <!-- If cart is empty, show nice message -->
+            <div class="empty-cart snipcart-cart__empty" style="display:none;">
+                <h2>Your cart is empty</h2>
+                <p>Looks like you haven't added any therapy resources yet.</p>
+                <a href="products.html">Continue Shopping</a>
+            </div>
+        </div>
+
+        <!-- Snipcart Checkout Button (shown when items exist) -->
+        <div class="snipcart-checkout-button" style="text-align:center; margin-top:3rem;">
+            <button class="snipcart-checkout" style="background:#007bff; color:white; padding:1.2rem 3rem; border:none; border-radius:50px; font-size:1.3rem; font-weight:600; cursor:pointer;">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Snipcart Config (same key as products.html) -->
+    <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_TEST_KEY_HERE">
+    </div>
+</body>
+</html>

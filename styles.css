@@ -1,0 +1,594 @@
+/* ==================================================================
+   OT RESOURCE HUB – styles.css
+   Clean, modern, fully responsive design
+   Updated: December 2025
+   ================================================================== */
+
+/* ==================== 1. GLOBAL & TYPOGRAPHY ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+/* Remove default list styles and link underlines globally */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==================== 2. LAYOUT CONTAINERS ==================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ==================== 3. HEADER & NAVIGATION ==================== */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    color: #1a3e72;
+    font-weight: 700;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.85;
+}
+
+.logo-img {
+    height: 52px;                    /* Perfect size for navbar */
+    width: auto;
+    max-width: 160px;
+    margin-right: 12px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #1a3e72;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    color: #333;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #007bff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #007bff;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* ==================== 4. HERO SECTION ==================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 2.5rem auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    flex: 1;
+    padding: 3rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a3e72;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: #444;
+    margin-bottom: 2rem;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2.5px solid #007bff;
+}
+
+.btn-secondary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ==================== 5. FEATURES SECTION ==================== */
+.features {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.features h2 {
+    font-size: 2.4rem;
+    color: #1a3e72;
+    margin-bottom: 3rem;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 320px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #1a3e72;
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+/* ==================== 6. ABOUT US SECTION ==================== */
+.about-us {
+    background-color: #f8f9fa;
+    padding: 6rem 0;
+    border-radius: 20px;
+    margin: 4rem 0;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 50% width for image, 50% for text */
+.about-image,
+.about-text {
+    flex: 1;                    /* Each takes exactly 50% */
+}
+
+/* Control the image perfectly */
+.about-image img {
+    width: 100%;
+    height: auto;
+    max-height: 560px;          /* Keeps it tall but not overwhelming */
+    object-fit: cover;          /* Crops nicely if needed */
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    display: block;
+}
+
+/* Text styling */
+.about-text {
+    padding-left: 1rem;
+}
+
+.about-text h2 {
+    font-size: 2.6rem;
+    color: #1a3e72;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.about-text .btn-primary {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* Responsive: Stack vertically on tablets & phones */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding: 0 1.5rem;
+    }
+    
+    .about-image,
+    .about-text {
+        flex: none;
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .about-image img {
+        max-height: 450px;
+        border-radius: 16px;
+    }
+    
+    .about-text {
+        padding-left: 0;
+    }
+}
+
+/* ==================== 7. PRODUCTS SECTION ==================== */
+.products {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.products h2 {
+    font-size: 2.4rem;
+    color: #1a3e72;
+    margin-bottom: 3rem;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Replace the old .product-card h3 rule with this */
+.product-title {
+    font-size: 1.25rem;          /* Smaller than a normal h1 */
+    font-weight: 700;
+    margin: 1rem 1rem 0.5rem;
+    color: #1a3e72;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 1.3rem;
+    margin: 1rem 0 0.5rem;
+    color: #1a3e72;
+}
+
+.product-card p {
+    font-weight: 600;
+    color: #007bff;
+    font-size: 1.2rem;
+}
+
+.add-to-cart {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #0056b3;
+}
+
+/* ==================== 8. FOOTER ==================== */
+footer {
+    background-color: #1a3e72;
+    color: white;
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+.footer-content p {
+    color: white;            
+    margin: 0 0 1rem 0;
+    font-size: 0.95rem;
+}
+.footer-links a {
+    color: #bbdefb;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ==================== 9. RESPONSIVE DESIGN ==================== */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        padding: 2.5rem 1.5rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav-links {
+        margin-top: 1rem;
+        gap: 1.5rem;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        display: show;        
+    }
+    .logo-img {
+        height: 48px;
+    }
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==================== 10. RESOURCES PAGE SPECIFIC ==================== */
+
+/* Resource Hero (similar to main hero but customized) */
+.resource-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #bbdefb 0%, #e3f2fd 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.resource-hero .hero-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.resource-hero h1 {
+    font-size: 3rem;
+    color: #1a3e72;
+    margin-bottom: 1.2rem;
+}
+
+.resource-hero p {
+    font-size: 1.25rem;
+    color: #444;
+    margin-bottom: 2rem;
+}
+
+/* Video Resources Section */
+.video-resources {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.video-resources h2 {
+    font-size: 2.6rem;
+    color: #1a3e72;
+    margin-bottom: 1.5rem;
+}
+
+.video-resources .intro-text {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+    gap: 3rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.video-section:hover {
+    transform: translateY(-8px);
+}
+
+.video-section.odd {
+    flex-direction: row;
+}
+
+.video-section.even {
+    flex-direction: row-reverse;
+}
+
+.video-container,
+.text-container {
+    flex: 1;
+}
+
+.video-container video {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.text-container h3 {
+    font-size: 1.8rem;
+    color: #1a3e72;
+    margin-bottom: 1rem;
+}
+
+.text-container p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* Responsive for Videos */
+@media (max-width: 992px) {
+    .video-section,
+    .video-section.even {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .video-container video {
+        max-height: 300px;
+    }
+}
