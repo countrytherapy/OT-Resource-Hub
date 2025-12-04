@@ -5,385 +5,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learning Hub – OT Resource Hub</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #1a3e72;
-      --primary-light: #2563eb;
-      --primary-glow: rgba(37, 99, 235, 0.3);
-      --accent: #007bff;
-      --bg: #f9fafb;
-      --card: white;
-      --text: #1f2937;
-      --text-light: #64748b;
-      --border: #e2e8f0;
-      --radius: 20px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.08);
-      --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
-    }
-
-    .learning-page { min-height: 100vh; background: var(--bg); font-family: 'Poppins', sans-serif; color: var(--text); }
-    .learning-header { background: white; border-bottom: 1px solid var(--border); position: sticky; top:0; z-index:10; }
-    .learning-container { max-width: 1200px; margin:0 auto; padding:0 1rem; }
-
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-      padding: 0.75rem 1.8rem; border-radius: 50px; font-weight: 600; font-size: 1rem;
-      cursor: pointer; transition: all 0.35s ease; border: none; text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; }
-    .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 12px 30px var(--primary-glow); }
-    .btn-back { background: white; color: var(--primary); border: 2px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .btn-back:hover { background: #f8fafc; border-color: var(--primary); transform: translateY(-3px); }
-    .btn-bookmark { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; padding: 0.9rem 1.8rem; font-size: 1.1rem; }
-    .btn-bookmark:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4); }
-
-    .course-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); margin-top: 3rem; }
-    .course-card { background: var(--card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: all 0.4s ease; cursor: pointer; border: 1px solid var(--border); }
-    .course-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
-    .course-card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1.8rem; }
-
-    .learning-hero { background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 50%, #7dd3fc 100%); padding: 6rem 1rem; text-align: center; border-radius: 0 0 30px 30px; position: relative; overflow: hidden; }
-    .learning-hero h1 { font-size: 3.5rem; color: var(--primary); margin-bottom: 1rem; }
-    .learning-hero p { font-size: 1.3rem; color: #334155; max-width: 800px; margin: 0 auto; }
-
-    .lesson-item { display: flex; align-items: center; gap: 1rem; padding: 1.3rem; border-radius: 16px; margin-bottom: 0.5rem; background: white; border: 1px solid var(--border); transition: all 0.3s ease; cursor: pointer; }
-    .lesson-item:hover { background: #f0f9ff; border-color: var(--primary-light); }
-    .lesson-item.active { background: linear-gradient(90deg, #dbeafe, #bfdbfe); border-color: var(--primary); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15); }
-
-    .tab { padding: 1rem 1.5rem; font-weight: 600; color: var(--text-light); border-bottom: 3px solid transparent; transition: all 0.3s; cursor: pointer; }
-    .tab.active { color: var(--primary); border-color: var(--primary); }
-
-    @keyframes toast {
-      0%, 100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
-      15%, 85% { opacity: 1; transform: translateX(-50%) translateY(0); }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
-<body class="learning-page">
+<body>
 
-  <header class="learning-header">
-    <div class="learning-container">
-      <nav class="navbar">
-        <div class="logo">
-          <a href="index.html" class="logo-link">
-            <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
-            <span class="logo-text">OT Resource Hub</span>
-          </a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="resource.html">Resources</a></li>
-          <li><a href="products.html">Shop</a></li>
-          <li><a href="learning.html">Learning</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- SAME HEADER AS ALL PAGES -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html" class="logo-link">
+          <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+          <span class="logo-text">OT Resource Hub</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resource.html">Resources</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="learning.html">Learning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="app"></main>
+  <main>
+    <!-- HERO -->
+    <section class="learning-hero">
+      <h1>Learning Hub</h1>
+      <p>Expert-led mini-courses created by pediatric occupational therapists, practical, warm, and ready to use tomorrow.</p>
+    </section>
 
-  <footer style="margin-top:6rem;padding:4rem 0;background:#1a3e72;color:white;text-align:center;">
-    <div class="learning-container">
-      <p style="margin:0;font-size:1.1rem;">© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+    <!-- COURSE GRID -->
+    <section class="container">
+      <div class="course-grid">
+        <!-- COURSE 1 -->
+        <article class="course-card">
+          <img src="assets/fine-and-gross-motor-development-in-schools-thumbnail" alt="Fine & Gross Motor Development">
+          <div class="card-body">
+            <h3>Fine and Gross Motor Development in Schools</h3>
+            <p>Identify red flags early and support motor skill growth with practical, classroom-friendly strategies.</p>
+            <p><strong>Lauren Hunter • 10 min</strong></p>
+            <a href="fine&gross-motor.html" class="btn btn-primary">Start Course</a>
+          </div>
+        </article>
+
+        <!-- COURSE 2 -->
+        <article class="course-card">
+          <img src="assets/supporting-attention-and-concentation-thumbnail" alt="Supporting Attention">
+          <div class="card-body">
+            <h3>Supporting Attention and Concentration</h3>
+            <p>Simple sensory and movement breaks that help kids focus — perfect for the classroom or clinic.</p>
+            <p><strong>Lauren Hunter • 14 min</strong></p>
+            <a href="attention&concentration.html" class="btn btn-primary">Start Course</a>
+          </div>
+        </article>
+
+        <!-- COURSE 3 -->
+        <article class="course-card">
+          <img src="assets/understanding-sensory-in-the-classroom-thumbnail" alt="Sensory Regulation">
+          <div class="card-body">
+            <h3>Helping Students Stay Regulated and Engaged</h3>
+            <p>Understand sensory processing and learn calming + alerting strategies that actually work.</p>
+            <p><strong>Lauren Hunter • 15 min</strong></p>
+            <a href="sensory.html" class="btn btn-primary">Start Course</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms_of_service.html">Terms of Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </div>
   </footer>
-
-  <script>
-    const courses = [
-      {
-        id: 'Motor Development',
-        title: 'Fine and Gross Motor Development in Schools',
-        description: 'Practical strategies to help children process sensory input effectively.',
-        image: '/assets/fine-and-gross-motor-development-in-schools-thumbnail',
-        instructor: 'Lauren Hunter',
-        duration: '10m 03s',
-        lessons: [
-          { id: 's1', title: 'Fine and Gross Motor Development in Schools', duration: '10:03', videoUrl: '/assets/videos/Fine-&-Gross-Motor-Development-in-Schools-Identifying-and-Supporting-Motor-Skill-Difficulties.mp4', transcript: [
-            {time:'00:00', text:'Welcome to the Sensory Integration course.'},
-          ]},
-        ]
-      },
-      {
-        id: 'Supporting Attention',
-        title: 'Supporting Attention and Concentration',
-        description: 'Practical strategies to help children process sensory input effectively.',
-        image: '/assets/supporting-attention-and-concentation-thumbnail',
-        instructor: 'Lauren Hunter',
-        duration: '14m 02s',
-        lessons: [
-          { id: 's1', title: 'Supporting Attention and Concentration', duration: '14:02', videoUrl: '/assets/videos/Supporting-Attention-and-Concentration.mp4', transcript: [
-            {time:'00:00', text:'Welcome to the Sensory Integration course.'},
-          ]},
-        ]
-      },
-      {
-        id: 'Understanding Sensory Processing',
-        title: 'Helping Students Stay Regulated and Engaged',
-        description: 'Fun, evidence-based activities to strengthen little hands.',
-        image: '/assets/understanding-sensory-in-the-classroom-thumbnail',
-        instructor: 'Lauren Hunter',
-        duration: '15m 40s',
-        lessons: [
-          { id: 'm1', title: 'Helping Students Stay Regulated and Engaged', duration: '15.40', videoUrl: '/assets/videos/Understanding-Sensory-Processing-in-the-Classroom-Helping-Students-Stay-Regulated-and-Engaged.mp4', transcript: []},
-        ]
-      }
-    ];
-
-    let state = { view: 'home', course: null, lesson: null, bookmarks: [] };
-
-    function saveState() {
-      const hash = state.course ? `#course=${state.course.id}${state.lesson ? '&lesson='+state.lesson.id : ''}` : '';
-      history.replaceState(state, '', hash || location.pathname);
-      localStorage.setItem('ot-learning-bookmarks', JSON.stringify(state.bookmarks));
-    }
-
-    function loadState() {
-      const saved = localStorage.getItem('ot-learning-bookmarks');
-      if (saved) state.bookmarks = JSON.parse(saved);
-      const hash = location.hash.slice(1);
-      const params = new URLSearchParams(hash);
-      const cId = params.get('course');
-      const lId = params.get('lesson');
-      if (cId) {
-        const c = courses.find(x => x.id === cId);
-        if (c) {
-          state.course = c;
-          state.view = lId ? 'lesson' : 'course';
-          if (lId) state.lesson = c.lessons.find(x => x.id === lId);
-        }
-      }
-    }
-
-    const $app = document.getElementById('app');
-
-    function renderHome() {
-      $app.innerHTML = `
-        <section class="learning-hero">
-          <h1>Learning Hub</h1>
-          <p>Expert-led video courses on sensory integration, motor skills, and more.</p>
-        </section>
-        <div class="learning-container">
-          <div class="course-grid">
-            ${courses.map(c => `
-              <div class="course-card" data-id="${c.id}">
-                <img src="${c.image}" alt="${c.title}">
-                <div class="card-body">
-                  <h3>${c.title}</h3>
-                  <p>${c.description}</p>
-                  <div style="margin-top:1.5rem;">
-                    <button class="btn btn-primary">Start Learning</button>
-                  </div>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
-
-      document.querySelectorAll('.course-card').forEach(el => {
-        el.addEventListener('click', () => {
-          const course = courses.find(x => x.id === el.dataset.id);
-          state.course = course; state.view = 'course'; state.lesson = null;
-          saveState(); render();
-        });
-      });
-    }
-
-    function renderCourse() {
-      const c = state.course;
-      $app.innerHTML = `
-        <div class="learning-container">
-          <button class="btn btn-back my-4" id="back-home">← Back to Courses</button>
-          <section class="learning-hero" style="margin-top:0;padding:4rem 1rem;">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-              <div>
-                <h1 style="font-size:2.8rem;margin-bottom:1rem;">${c.title}</h1>
-                <p style="font-size:1.2rem;margin-bottom:1.5rem;">${c.description}</p>
-                <div style="display:flex;gap:1.5rem;font-size:1rem;color:#555; justify-content:center; text-align:center;">
-                  <span> ${c.instructor}</span>
-                  <span>Play ${c.lessons.length} lessons</span>
-                  <span>Clock ${c.duration}</span>
-                </div>
-              </div>
-              <img src="${c.image}" alt="${c.title}" class="rounded-2xl shadow-2xl" style="width:800px; height:auto;"">
-            </div>
-          </section>
-          <div class="lesson-list mt-8">
-            ${c.lessons.map((l, i) => `
-              <div class="lesson-item ${state.lesson?.id === l.id ? 'active' : ''}" data-id="${l.id}">
-                <i class="fas fa-play-circle" style="font-size:1.4rem;color:var(--accent);"></i>
-                <div style="flex:1;">
-                  <div style="font-weight:600;">${l.title}</div>
-                  <div style="font-size:0.9rem;color:#666;">${l.duration}</div>
-                </div>
-                <span style="color:#888;">Lesson ${i + 1}</span>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
-
-      document.getElementById('back-home').addEventListener('click', () => {
-        state.view = 'home'; state.course = null; state.lesson = null;
-        saveState(); render();
-      });
-
-      document.querySelectorAll('.lesson-item').forEach(el => {
-        el.addEventListener('click', () => {
-          const lesson = c.lessons.find(x => x.id === el.dataset.id);
-          state.lesson = lesson; state.view = 'lesson';
-          saveState(); render();
-        });
-      });
-    }
-
-    function renderLesson() {
-      const c = state.course, l = state.lesson;
-      $app.innerHTML = `
-        <div class="learning-container">
-          <button class="btn btn-back my-4" id="back-course">← Back to ${c.title}</button>
-          <div style="display:grid;grid-template-columns:1fr 380px;gap:2rem;margin-top:2rem;">
-            <div>
-              <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;border-radius:20px;">
-                <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                  <source src="${l.videoUrl}" type="video/mp4">
-                  Your browser does not support video.
-                </video>
-              </div>
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;">
-                <h2 style="font-size:1.8rem;margin:0;">${l.title}</h2>
-                <button class="btn btn-bookmark" id="add-bookmark">Bookmark This Moment</button>
-              </div>
-            </div>
-            <div>
-              <div style="display:flex;gap:2rem;border-bottom:2px solid #e2e8f0;margin-bottom:1rem;">
-                <div class="tab active" data-tab="lessons">Lessons</div>
-                <div class="tab" data-tab="transcript">Transcript</div>
-                <div class="tab" data-tab="bookmarks">Bookmarks (${state.bookmarks.length})</div>
-              </div>
-              <div id="tab-content" style="max-height:60vh;overflow-y:auto;"></div>
-            </div>
-          </div>
-        </div>
-      `;
-
-      const tabs = document.querySelectorAll('.tab');
-      const content = document.getElementById('tab-content');
-      const video = document.querySelector('video');
-
-      function timeToSeconds(timeStr) {
-        const [m, s] = timeStr.split(':').map(Number);
-        return m * 60 + s;
-      }
-
-      function showLessons() {
-        content.innerHTML = `<div style="display:grid;gap:0.5rem;">
-          ${c.lessons.map((les, i) => `
-            <div style="padding:1rem;border-radius:12px;background:${les.id===l.id?'#e0f2fe':'#f8fafc'};border:1px solid ${les.id===l.id?'#007bff':'#e2e8f0'};font-weight:${les.id===l.id?'600':''}">
-              Lesson ${i+1}: ${les.title} <span style="float:right;color:#666;">${les.duration}</span>
-            </div>
-          `).join('')}
-        </div>`;
-      }
-
-      function showTranscript() {
-        if (!l.transcript || l.transcript.length === 0) {
-          content.innerHTML = '<p style="text-align:center;color:#888;padding:2rem;">Transcript not available.</p>';
-          return;
-        }
-        content.innerHTML = l.transcript.map(t => `
-          <div style="padding:1rem;border-bottom:1px solid #e2e8f0;cursor:pointer;" 
-               onclick="document.querySelector('video').currentTime = ${timeToSeconds(t.time)}; document.querySelector('video').play();">
-            <strong style="color:#007bff;">${t.time}</strong> ${t.text}
-          </div>
-        `).join('');
-      }
-
-      function showBookmarks() {
-        if (state.bookmarks.length === 0) {
-          content.innerHTML = '<p style="text-align:center;padding:3rem;color:#888;">No bookmarks yet</p>';
-          return;
-        }
-        content.innerHTML = state.bookmarks.map((b, i) => `
-          <div style="display:flex;justify-content:space-between;padding:1rem;background:#f8fafc;border-radius:12px;margin-bottom:0.5rem;">
-            <div>
-              <div style="font-weight:600;">${b.note}</div>
-              <div style="color:#666;font-size:0.9rem;">${b.time} – ${l.title}</div>
-            </div>
-            <button style="color:#ef4444;background:none;border:none;cursor:pointer;" 
-                    onclick="state.bookmarks.splice(${i},1); saveState(); showBookmarks();">Remove</button>
-          </div>
-        `).join('');
-      }
-
-      tabs.forEach(t => t.addEventListener('click', () => {
-        tabs.forEach(x => x.classList.toggle('active', x === t));
-        if (t.dataset.tab === 'lessons') showLessons();
-        else if (t.dataset.tab === 'transcript') showTranscript();
-        else showBookmarks();
-      }));
-
-      // BEAUTIFUL BOOKMARK SYSTEM
-      document.getElementById('add-bookmark').addEventListener('click', () => {
-        const secs = Math.floor(video.currentTime);
-        const minutes = String(Math.floor(secs / 60)).padStart(2, '0');
-        const seconds = String(secs % 60).padStart(2, '0');
-        const currentTime = `${minutes}:${seconds}`;
-
-        const note = prompt(
-          `Add a note for this bookmark (${currentTime})\n\nExamples:\n• Amazing explanation of proprioception!\n• Try this activity with Sarah\n• Best calming strategy ever`,
-          `Great tip at ${currentTime}`
-        );
-
-        if (!note || note.trim() === '' || note.trim() === 'Great tip at ' + currentTime) {
-          return; // cancelled or empty
-        }
-
-        state.bookmarks.push({
-          time: currentTime,
-          note: note.trim()
-        });
-
-        saveState();
-
-        // Success toast
-        const toast = document.createElement('div');
-        toast.textContent = `Bookmark added at ${currentTime}`;
-        toast.style.cssText = `
-          position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
-          background: #10b981; color: white; padding: 1rem 2rem; border-radius: 50px;
-          font-weight: 600; z-index: 10000; box-shadow: 0 10px 30px rgba(16,185,129,0.4);
-          animation: toast 3s ease forwards;
-        `;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
-
-        if ([...tabs].find(t => t.classList.contains('active')).dataset.tab === 'bookmarks') {
-          showBookmarks();
-        }
-      });
-
-      document.getElementById('back-course').addEventListener('click', () => {
-        state.view = 'course'; state.lesson = null; saveState(); render();
-      });
-
-      showLessons();
-    }
-
-    function render() {
-      if (state.view === 'home') renderHome();
-      else if (state.view === 'course') renderCourse();
-      else if (state.view === 'lesson') renderLesson();
-    }
-
-    window.addEventListener('popstate', () => { loadState(); render(); });
-    loadState();
-    render();
-  </script>
 </body>
 </html>
