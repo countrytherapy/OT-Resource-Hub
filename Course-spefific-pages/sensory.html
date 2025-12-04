@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helping Students Stay Regulated and Engaged• OT Resource Hub</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Tiny page-specific styles – keeps everything perfect */
+    .course-header { padding: 3rem 0 2rem; text-align: center; background: linear-gradient(to bottom, #fff8f3, transparent); }
+    .course-header h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; color: var(--deep-brown); margin-bottom: .5rem; }
+    .course-header p { font-size: 1.15rem; color: #8D6E63; max-width: 700px; margin: 0 auto; }
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 32px; box-shadow: 0 25px 70px rgba(139,111,71,.28); margin: 2rem 0; }
+    .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 32px; }
+    .tabs { display: flex; gap: 2rem; border-bottom: 3px solid #FFDAC1; margin: 3rem 0 1.5rem; padding-bottom: .5rem; }
+    .tab { padding: .8rem 0; font-weight: 600; color: #8D6E63; cursor: pointer; border-bottom: 4px solid transparent; transition: .3s; }
+    .tab.active { color: var(--terracotta); border-color: var(--terracotta); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .transcript-line { padding: 1.1rem 0; border-bottom: 1px solid #FFDAC1; cursor: pointer; }
+    .transcript-line:hover { background: #FFF8F3; }
+    .transcript-time { color: var(--terracotta); font-weight: 700; margin-right: .8rem; }
+    .bookmark-item { padding: 1rem; background: #FFF8F3; border-radius: 16px; margin-bottom: .8rem; display: flex; justify-content: space-between; align-items: center; }
+    .bookmark-remove { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #ef4444; }
+  </style>
+</head>
+<body class="learning-page">
+
+  <!-- SAME HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="../index.html" class="logo-link"><img src="../assets/Logo.png" alt="Logo" class="logo-img"><span class="logo-text">OT Resource Hub</span></a></div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../resource.html">Resources</a></li>
+        <li><a href="../products.html">Shop</a></li>
+        <li><a href="../learning.html">Learning</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <a href="../learning.html" class="btn btn-back">Back to Learning Hub</a>
+
+    <div class="course-header">
+      <h1>Helping Students Stay Regulated and Engaged</h1>
+      <p>Lauren Hunter • 10 min • 1 lesson</p>
+    </div>
+
+    <!-- VIDEO -->
+    <div class="video-wrapper">
+      <video controls poster="../assets/understanding-sensory-in-the-classroom-thumbnail">
+        <source src="../assets/videos/Understanding-Sensory-Processing-in-the-Classroom-Helping-Students-Stay-Regulated-and-Engaged.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+
+    <button class="btn btn-bookmark" onclick="addBookmark()">Bookmark This Moment</button>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" onclick="openTab('lessons')">Lessons</div>
+      <div class="tab" onclick="openTab('transcript')">Transcript</div>
+      <div class="tab" onclick="openTab('bookmarks')">Bookmarks (<span id="bookmark-count">0</span>)</div>
+    </div>
+
+    <!-- TAB CONTENT -->
+    <div id="lessons" class="tab-content active">
+      <div style="padding:1.5rem;background:#f8fafc;border-radius:20px;">
+        <strong>Lesson 1:</strong> Helping Students Stay Regulated and Engaged
+      </div>
+    </div>
+
+    <div id="transcript" class="tab-content">
+      <div class="transcript-line" onclick="seek(0)"><span class="transcript-time">00:00</span> Welcome to Fine and Gross Motor Development in Schools…</div>
+      <div class="transcript-line" onclick="seek(32)"><span class="transcript-time">00:32</span> Today we’re looking at red flags in handwriting and PE…</div>
+      <!-- Add more lines as needed -->
+    </div>
+
+    <div id="bookmarks" class="tab-content">
+      <p style="color:#888;padding:2rem 0;text-align:center;">No bookmarks yet. Click "Bookmark This Moment" during the video!</p>
+    </div>
+
+  </main>
+
+  <!-- SAME FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="../terms_of_service.html">Terms of Service</a></li>
+        <li><a href="../contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Tiny JS for tabs + bookmarks (still super simple) -->
+  <script>
+    function openTab(name) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelector(`.tab[onclick="openTab('${name}')"]`).classList.add('active');
+      document.getElementById(name).classList.add('active');
+    }
+    function seek(seconds) {
+      document.querySelector('video').currentTime = seconds;
+      document.querySelector('video').play();
+    }
+    function addBookmark() {
+      const video = document.querySelector('video');
+      const time = Math.floor(video.currentTime);
+      const mins = String(Math.floor(time/60)).padStart(2,'0');
+      const secs = String(time%60).padStart(2,'0');
+      const timestamp = `${mins}:${secs}`;
+
+      const note = prompt(`Bookmark at ${timestamp}\n(Add a note)`, `Great tip at ${timestamp}`);
+      if (!note || note.trim() === '') return;
+
+      let bookmarks = JSON.parse(localStorage.getItem('ot-bookmarks') || '[]');
+      bookmarks.push({ course: 'motor', time: timestamp, note: note.trim(), seconds: time });
+      localStorage.setItem('ot-bookmarks', JSON.stringify(bookmarks));
+
+      alert(`Bookmarked at ${timestamp}!`);
+      updateBookmarks();
+    }
+    function updateBookmarks() {
+      const list = document.getElementById('bookmarks');
+      const count = document.getElementById('bookmark-count');
+      let bookmarks = JSON.parse(localStorage.getItem('ot-bookmarks') || '[]');
+      bookmarks = bookmarks.filter(b => b.course === 'motor');
+
+      count.textContent = bookmarks.length;
+      if (bookmarks.length === 0) {
+        list.innerHTML = '<p style="color:#888;padding:2rem 0;text-align:center;">No bookmarks yet.</p>';
+        return;
+      }
+      list.innerHTML = bookmarks.map((b,i) => `
+        <div class="bookmark-item">
+          <div>
+            <div style="font-weight:600;">${b.note}</div>
+            <div style="color:#666;font-size:.9rem;">${b.time}</div>
+          </div>
+          <button class="bookmark-remove" onclick="this.parentElement.parentElement.remove(); removeBookmark(${i})">×</button>
+        </div>
+      `).join('');
+    }
+    window.addEventListener('load', updateBookmarks);
+  </script>
+</body>
+</html>
