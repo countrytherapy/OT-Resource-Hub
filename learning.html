@@ -176,7 +176,7 @@
                   <h3>${c.title}</h3>
                   <p>${c.description}</p>
                   <div style="margin-top:1.5rem;">
-                    <button class="btn btn-primary">Start Learning →</button>
+                    <button class="btn btn-primary">Start Learning</button>
                   </div>
                 </div>
               </div>
@@ -204,13 +204,13 @@
               <div>
                 <h1 style="font-size:2.8rem;margin-bottom:1rem;">${c.title}</h1>
                 <p style="font-size:1.2rem;margin-bottom:1.5rem;">${c.description}</p>
-                <div style="display:flex;gap:1.5rem;font-size:1rem;color:#555;">
+                <div style="display:flex;gap:1.5rem;font-size:1rem;color:#555; justify-content:center; text-align:center;">
                   <span> ${c.instructor}</span>
                   <span>Play ${c.lessons.length} lessons</span>
                   <span>Clock ${c.duration}</span>
                 </div>
               </div>
-              <img src="${c.image}" alt="${c.title}" class="rounded-2xl shadow-2xl">
+              <img src="${c.image}" alt="${c.title}" class="rounded-2xl shadow-2xl" style="width:800px; height:auto;"">
             </div>
           </section>
           <div class="lesson-list mt-8">
