@@ -6,10 +6,50 @@
   <title>Learning Hub – OT Resource Hub</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- move to styles.css later -->
+  <style>
+    .login-prompt-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .login-prompt-modal.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .modal-content h2 {
+      margin: 0 0 15px;
+      font-size: 28px;
+    }
+    .modal-content p {
+      margin: 0 0 25px;
+      color: #555;
+    }
+    .modal-content .btn-primary {
+      margin: 10px 0;
+      padding: 12px 30px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- SAME HEADER AS ALL PAGES -->
   <header>
     <nav class="navbar">
       <div class="logo">
@@ -45,7 +85,7 @@
             <h3>Fine and Gross Motor Development in Schools</h3>
             <p>Identify red flags early and support motor skill growth with practical, classroom-friendly strategies.</p>
             <p><strong>Lauren Hunter • 10 min</strong></p>
-            <a href="/Course-spefific-pages/fine&gross-motor.html" class="btn btn-primary">Start Course</a>
+            <a href="Course-specific-pages/fine&gross-motor.html" class="btn btn-primary course-btn" data-course="fine&gross-motor.html">Start Course</a>
           </div>
         </article>
 
@@ -56,7 +96,7 @@
             <h3>Supporting Attention and Concentration</h3>
             <p>Simple sensory and movement breaks that help kids focus — perfect for the classroom or clinic.</p>
             <p><strong>Lauren Hunter • 14 min</strong></p>
-            <a href="/Course-spefific-pages/attention&concentration.html" class="btn btn-primary">Start Course</a>
+            <a href="Course-specific-pages/attention&concentration.html" class="btn btn-primary course-btn" data-course="attention&concentration.html">Start Course</a>
           </div>
         </article>
 
@@ -67,7 +107,7 @@
             <h3>Helping Students Stay Regulated and Engaged</h3>
             <p>Understand sensory processing and learn calming + alerting strategies that actually work.</p>
             <p><strong>Lauren Hunter • 15 min</strong></p>
-            <a href="/Course-spefific-pages/sensory.html" class="btn btn-primary">Start Course</a>
+            <a href="Course-specific-pages/sensory.html" class="btn btn-primary course-btn" data-course="sensory.html">Start Course</a>
           </div>
         </article>
       </div>
@@ -85,5 +125,72 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Login Prompt Modal (shown when not logged in) -->
+  <div id="login-prompt-modal" class="login-prompt-modal">
+    <div class="modal-content">
+      <h2>Log In Required</h2>
+      <p>Sign in or create a free account to access this course and all our learning content.</p>
+      <a href="user_templates/login.html" class="btn btn-primary">Log In</a>
+      <br><br>
+      <a href="user_templates/register.html" class="btn btn-secondary">Create Free Account</a>
+      <br><br>
+      <button id="close-modal" style="background:none;border:none;font-size:20px;cursor:pointer;color:#999;">✕ Close</button>
+    </div>
+  </div>
+
+  <!-- Supabase Auth Script -->
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  const supabase = createClient(
+    'https://ymtamonkaajuxxwcslbg.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltdGFtb25rYWFqdXh4d2NzbGJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzMjg1ODUsImV4cCI6MjA4MDkwNDU4NX0.dSZ0vvTE0Y2MbUHPnrsviMYGi_us7jf2Kr2R6Os195E'
+  );
+
+  const modal = document.getElementById('login-prompt-modal');
+  const closeBtn = document.getElementById('close-modal');
+
+  // Close modal when clicking the X
+  closeBtn.addEventListener('click', () => {
+    modal.classList.remove('visible');
+  });
+
+  // Close modal when clicking outside content
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('visible');
+    }
+  });
+
+  // === MOVE checkLogin() ABOVE HERE ===
+  async function checkLogin() {
+    const { data: { session } } = await supabase.auth.getSession();
+    return !!session;
+  }
+
+  // Now set up the course buttons (uses checkLogin safely)
+  document.querySelectorAll('.course-btn').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault(); // Prevent navigation
+      const isLoggedIn = await checkLogin();
+
+      if (isLoggedIn) {
+        // Logged in → go to the course
+        window.location.href = btn.getAttribute('href');
+      } else {
+        // Not logged in → show modal
+        modal.classList.add('visible');
+      }
+    });
+  });
+
+  // Re-check on auth state change (optional, in case user logs in elsewhere)
+  supabase.auth.onAuthStateChange(async (event, session) => {
+    if (session) {
+      modal.classList.remove('visible'); // Hide modal if they just logged in
+    }
+  });
+</script>
 </body>
 </html>

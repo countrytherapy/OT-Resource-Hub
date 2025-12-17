@@ -6,8 +6,68 @@
     <title>Resources - Occupational Therapy Resource Hub</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles for blur + smart lock overlay -->
+    <style>
+      /* Blur only on protected content (videos + footer) */
+      .protected-blurred {
+        position: relative;
+      }
+      .protected-blurred::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 998;
+        pointer-events: none;
+      }
+
+      /* Lock overlay - hidden by default, shown only when scrolled into blurred area */
+      .login-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 40px 50px;
+        border-radius: 20px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+        z-index: 999;
+        text-align: center;
+        max-width: 90%;
+        border: 3px solid #e0e0e0;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+      .login-overlay.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      .login-overlay .lock-icon {
+        font-size: 60px;
+        margin-bottom: 20px;
+        color: #999;
+      }
+      .login-overlay h2 {
+        margin: 0 0 15px;
+        font-size: 28px;
+      }
+      .login-overlay p {
+        margin: 0 0 25px;
+        color: #555;
+        font-size: 16px;
+      }
+      .login-overlay .btn-primary {
+        padding: 12px 30px;
+        font-size: 18px;
+      }
+    </style>
 </head>
 <body>
+
     <header>
         <nav class="navbar">
             <div class="logo">
@@ -29,7 +89,7 @@
         </nav>
     </header>
 
-    <!-- RESOURCES HERO SECTION -->
+    <!-- HERO SECTION - ALWAYS VISIBLE & CLEAR -->
     <section class="resource-hero">
         <div class="hero-content">
             <h1>Unlock Therapeutic Resources</h1>
@@ -41,111 +101,149 @@
         </div>
     </section>
 
-    <main>
-        <!-- VIDEO RESOURCES SECTION (Alternating Layout) -->
-        <section class="video-resources">
-            <h2>Featured Therapy Videos</h2>
-            <p class="intro-text">Explore our video library with step-by-step demonstrations.</p>
-            
-            <!-- Video 1: Scooter Presentation – Left Video, Right Text -->
-            <div class="video-section odd">
-                <div class="video-container">
-                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
-                        <iframe loading="lazy"
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                                src="https://www.canva.com/design/DAG7EbhSa7o/sNfvZEgksCTxLIN5WOJDXw/watch?embed"
-                                allowfullscreen="allowfullscreen"
-                                allow="fullscreen">
-                        </iframe>
+    <!-- Protected Content: Videos + Footer (blurred when not logged in) -->
+    <div id="protected-content" class="protected-blurred">
+
+        <main>
+            <!-- VIDEO RESOURCES SECTION -->
+            <section class="video-resources">
+                <h2>Featured Therapy Videos</h2>
+                <p class="intro-text">Explore our video library with step-by-step demonstrations.</p>
+                
+                <!-- All your video sections (unchanged) -->
+                <div class="video-section odd">
+                    <div class="video-container">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
+                            <iframe loading="lazy"
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                                    src="https://www.canva.com/design/DAG7EbhSa7o/sNfvZEgksCTxLIN5WOJDXw/watch?embed"
+                                    allowfullscreen="allowfullscreen"
+                                    allow="fullscreen">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <h3>Scooter Presentation</h3>
+                        <p>Everything you need to know about prescribing and using mobility scooters safely.</p>
                     </div>
                 </div>
-                <div class="text-container">
-                    <h3>Scooter Presentation</h3>
-                    <p>Everything you need to know about prescribing and using mobility scooters safely.</p>
-                </div>
-            </div>
 
-            <!-- Video 2: Ramp Part One – Right Video -->
-            <div class="video-section even">
-                <div class="text-container">
-                    <h3>Ramp Part One</h3>
-                    <p>Step-by-step guide to assessing and prescribing ramps for home accessibility.</p>
-                </div>
-                <div class="video-container">
-                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
-                        <iframe loading="lazy"
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                                src="https://www.canva.com/design/DAG7EV26avY/u7eYZlgqVdW69FP2iR0wAQ/watch?embed"
-                                allowfullscreen="allowfullscreen"
-                                allow="fullscreen">
-                        </iframe>
+                <div class="video-section even">
+                    <div class="text-container">
+                        <h3>Ramp Part One</h3>
+                        <p>Step-by-step guide to assessing and prescribing ramps for home accessibility.</p>
+                    </div>
+                    <div class="video-container">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
+                            <iframe loading="lazy"
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                                    src="https://www.canva.com/design/DAG7EV26avY/u7eYZlgqVdW69FP2iR0wAQ/watch?embed"
+                                    allowfullscreen="allowfullscreen"
+                                    allow="fullscreen">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Video 3: OT in Aged Care – Left Video, Right Text -->
-            <div class="video-section odd">
-                <div class="video-container">
-                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
-                        <iframe loading="lazy"
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                                src="https://www.canva.com/design/DAG7EZcFa_8/tSPUqFPmI80NpeuhNhIROw/watch?embed"
-                                allowfullscreen="allowfullscreen"
-                                allow="fullscreen">
-                        </iframe>
+                <div class="video-section odd">
+                    <div class="video-container">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
+                            <iframe loading="lazy"
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                                    src="https://www.canva.com/design/DAG7EZcFa_8/tSPUqFPmI80NpeuhNhIROw/watch?embed"
+                                    allowfullscreen="allowfullscreen"
+                                    allow="fullscreen">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <h3>OT in Aged Care</h3>
+                        <p>Practical strategies and interventions for occupational therapists working in aged care settings.</p>
                     </div>
                 </div>
-                <div class="text-container">
-                    <h3>OT in Aged Care</h3>
-                    <p>Practical strategies and interventions for occupational therapists working in aged care settings.</p>
-                </div>
-            </div>
 
-            <!-- Video 4: Executive Functioning – Right Video -->
-            <div class="video-section even">
-                <div class="text-container">
-                    <h3>Executive Functioning</h3>
-                    <p>Understanding and supporting executive functioning skills in children and adults.</p>
-                </div>
-                <div class="video-container">
-                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
-                        <iframe loading="lazy"
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
-                                src="https://www.canva.com/design/DAG7EQf34c4/vC2NAQ2OjxNHQey_-kTtsA/watch?embed"
-                                allowfullscreen="allowfullscreen"
-                                allow="fullscreen">
-                        </iframe>
+                <div class="video-section even">
+                    <div class="text-container">
+                        <h3>Executive Functioning</h3>
+                        <p>Understanding and supporting executive functioning skills in children and adults.</p>
+                    </div>
+                    <div class="video-container">
+                        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;background:#000;border-radius:12px;">
+                            <iframe loading="lazy"
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+                                    src="https://www.canva.com/design/DAG7EQf34c4/vC2NAQ2OjxNHQey_-kTtsA/watch?embed"
+                                    allowfullscreen="allowfullscreen"
+                                    allow="fullscreen">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+        </main>
 
-            <!-- Video 5: STILL COMMENTED OUT -->
-            <!--
-            <div class="video-section odd">
-                <div class="video-container">
-                    <video controls poster="https://via.placeholder.com/600x400?text=Video+5+Poster">
-                        <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="text-container">
-                    <h3>Cognitive Play Strategies</h3>
-                    <p>Innovative ways to develop brain functions through everyday play.</p>
-                </div>
+        <footer>
+            <div class="footer-content">
+                <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms_of_service.html">Terms of Service</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
             </div>
-            -->
-        </section>
-    </main>
+        </footer>
+    </div>
 
-    <footer>
-        <div class="footer-content">
-            <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                <li><a href="terms_of_service.html">Terms of Service</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-    </footer>
+    <!-- Lock Overlay - appears only when scrolling into blurred area (for non-logged-in users) -->
+    <div id="login-overlay" class="login-overlay">
+      <div class="lock-icon">🔒</div>
+      <h2>Log In to View Full Resources</h2>
+      <p>Sign in to access all videos, guides, and exclusive content.</p>
+      <a href="user_templates/login.html" class="btn btn-primary">Log In Now</a>
+      <br><br>
+      <small>New here? <a href="user_templates/register.html">Create a free account</a></small>
+    </div>
+
+    <!-- Auth Guard + Scroll Detection Script -->
+    <script type="module">
+      import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+      const supabase = createClient(
+        'https://ymtamonkaajuxxwcslbg.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltdGFtb25rYWFqdXh4d2NzbGJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzMjg1ODUsImV4cCI6MjA4MDkwNDU4NX0.dSZ0vvTE0Y2MbUHPnrsviMYGi_us7jf2Kr2R6Os195E'
+      );
+
+      const protectedContent = document.getElementById('protected-content');
+      const loginOverlay = document.getElementById('login-overlay');
+
+      async function checkLogin() {
+        const { data: { session } } = await supabase.auth.getSession();
+
+        if (session) {
+          // Logged in → fully unlock
+          protectedContent.classList.remove('protected-blurred');
+          loginOverlay.style.display = 'none';
+        }
+      }
+
+      // Initial check
+      checkLogin();
+
+      // Listen for auth changes
+      supabase.auth.onAuthStateChange((event, session) => {
+        if (session) checkLogin();
+      });
+
+      // Scroll detection: show overlay only when user scrolls into blurred area (and not logged in)
+      window.addEventListener('scroll', () => {
+        if (protectedContent.classList.contains('protected-blurred')) {
+          const rect = protectedContent.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            loginOverlay.classList.add('visible');
+          } else {
+            loginOverlay.classList.remove('visible');
+          }
+        }
+      });
+    </script>
 </body>
 </html>
