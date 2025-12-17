@@ -1625,3 +1625,131 @@ body {
 .auth-card {
   position: relative; 
 }
+/* ===================================================== */
+/*                UPDATE PASSWORD PAGE                    */
+/* ===================================================== */
+
+.auth-page {
+  min-height: 100vh;
+  background: var(--light-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.auth-card {
+  background: white;
+  padding: 3rem 5rem;
+  border-radius: 28px;
+  box-shadow: 0 25px 70px rgba(139, 111, 71, .22);
+  border: 1px solid #FFDAC1;
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth-card h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.7rem;
+  color: var(--deep-brown);
+  margin-bottom: 0.5rem;
+}
+
+.auth-card > p {
+  color: #6D4C41;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Back Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--terracotta);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: #c96a4a;
+}
+
+.back-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Form Styling */
+.auth-form .form-group {
+  margin-bottom: 1.3rem;
+  text-align: left;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--deep-brown);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 1rem 1.4rem;
+  border: 2px solid #FFEBDB;
+  border-radius: 20px;
+  background: #FFFBF8;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 5px rgba(217, 119, 87, 0.15);
+}
+
+/* Primary Button */
+.btn-primary {
+  background: var(--terracotta);
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.btn-primary:hover {
+  background: #c96a4a;
+  transform: translateY(-2px);
+}
+
+/* Message Feedback */
+#message {
+  margin: 1.5rem 0;
+  font-weight: 500;
+  min-height: 1.5em;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 2.5rem 2rem;
+    max-width: 90%;
+  }
+  
+  .auth-card h1 {
+    font-size: 2.3rem;
+  }
+}
