@@ -1762,121 +1762,67 @@ body {
 /* ===================================================== */
 /*           LANDING SEO/ WEB OPTIMSATION                */
 /* ===================================================== */
-.seo-contact {
-  background: #fff8f3;
-  padding: 6rem 0;
-}
-
-.contact-split-grid {
+/* Scoped only to SEO Contact Section */
+.seo-contact .contact-split-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: stretch;
+  grid-template-columns: 1fr 1fr; /* Left: form, Right: text+image */
+  gap: 3rem;
+  align-items: start;
 }
 
-/* Left column - form */
-.contact-split-form {
+.seo-contact .contact-split-form {
   background: #ffffff;
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(63, 69, 81, 0.18);
+  box-shadow: 0 20px 50px rgba(63,69,81,0.18);
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.contact-split-form h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.contact-split-form p {
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.contact-split-form .form-group {
-  margin-bottom: 1.5rem;
-}
-
-.contact-split-form label {
-  font-weight: 600;
-  margin-bottom: .5rem;
-  display: block;
-}
-
-.contact-split-form input,
-.contact-split-form textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  font-size: 1rem;
-}
-
-.contact-split-form textarea {
-  resize: none;
-}
-
-.contact-split-form .submit-btn {
-  padding: 1rem 2rem;
-  background-color: var(--terracotta);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-split-form .submit-btn:hover {
-  background-color: #d05a35;
-}
-
-/* Right column - text + image */
-.contact-split-text {
+.seo-contact .contact-split-right {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  gap: 2rem; /* spacing between text and image */
 }
 
-.contact-hero-mini {
-  margin-bottom: 2rem;
-}
-
-.contact-hero-mini h1 {
+.seo-contact .contact-hero-mini h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.contact-hero-mini p {
+.seo-contact .contact-hero-mini p {
   font-size: 1.05rem;
   line-height: 1.6;
 }
 
-/* Image below text */
-.contact-text-image {
-  flex-grow: 1;
+.seo-contact .contact-text-image {
+  flex-grow: 1; /* fills remaining vertical space */
   border-radius: 24px;
   overflow: hidden;
 }
 
-.contact-text-image img {
+.seo-contact .contact-text-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 992px) {
-  .contact-split-grid {
+  .seo-contact .contact-split-grid {
     grid-template-columns: 1fr;
   }
 
-  .contact-text-image {
-    height: 300px;
-    margin-top: 1.5rem;
+  .seo-contact .contact-split-right {
+    flex-direction: column;
   }
+
+  .seo-contact .contact-text-image {
+    height: 300px;
+  }
+}
+.contact-hero-mini p {
+    margin-bottom: 1.5rem; /* adjust the spacing */
 }
