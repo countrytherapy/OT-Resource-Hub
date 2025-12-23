@@ -7,14 +7,15 @@
     <title>Shop Products - OT Resource Hub</title>
     <link rel="stylesheet" href="styles.css">
 
-  <script>
-    window.SnipcartSettings = {
-        publicApiKey: 'MWU3MjEzYmQtYjk5My00MzQxLWEwNjgtYzJkMjJlZTRiOGE3NjM5MDE5NTc1MjM3NDgyMDE2',
-        loadStrategy: 'on-user-interaction',
-    };
+    <script>
+        window.SnipcartSettings = {
+            publicApiKey: 'MWU3MjEzYmQtYjk5My00MzQxLWEwNjgtYzJkMjJlZTRiOGE3NjM5MDE5NTc1MjM3NDgyMDE2',
+            addProductBehavior: 'none',
+            modalStyle: 'side'  // Nice slide-in cart instead of full overlay
+        };
 
-    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
-</script>
+        (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    </script>
 </head>
 <body>
 
@@ -33,9 +34,11 @@
                 <li><a href="learning.html">Learning</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="snipcart-checkout cart-button" style="cursor:pointer;">
-                Cart (<span class="snipcart-items-count">0</span>)
-            </div>
+
+            <!-- Updated header cart button -->
+            <a href="#" class="snipcart-checkout cart-button">
+                Cart (<span class="snipcart-items-count"></span>)
+            </a>
         </nav>
     </header>
 
@@ -47,288 +50,299 @@
     <section class="products-section">
         <div class="products-grid">
 
-        <!-- 5 Areas of Attention -->
-        <div class="product-card">
-            <img src="https://www.developmentaltherapy.com/wp-content/uploads/2022/05/Sensory-Integration-Guide.jpg" alt="5 Areas of Attention">
-            <div class="product-info">
-                <h3>5 Areas of Attention</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/5-areas-of-attention.html" class="add-to-cart-btn">See More</a>
+            <!-- 5 Areas of Attention -->
+            <div class="product-card">
+                <img src="https://www.developmentaltherapy.com/wp-content/uploads/2022/05/Sensory-Integration-Guide.jpg" alt="5 Areas of Attention">
+                <div class="product-info">
+                    <h3>5 Areas of Attention</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/5-areas-of-attention.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- 5 Strategies to Support People with ASD or SPD -->
-        <div class="product-card">
-            <img src="https://www.griffinot.com/wp-content/uploads/Sensory-Processing-Disorder-GriffinOT-Sensory-Integration-jpg.webp" alt="5 Strategies to Support People with ASD or SPD">
-            <div class="product-info">
-                <h3>5 Strategies to Support People with ASD or SPD</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/5-strategies-asd-spd.html" class="add-to-cart-btn">See More</a>
+            <!-- 5 Strategies to Support People with ASD or SPD -->
+            <div class="product-card">
+                <img src="https://www.griffinot.com/wp-content/uploads/Sensory-Processing-Disorder-GriffinOT-Sensory-Integration-jpg.webp" alt="5 Strategies to Support People with ASD or SPD">
+                <div class="product-info">
+                    <h3>5 Strategies to Support People with ASD or SPD</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/5-strategies-asd-spd.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Anxiety Self Help Tool -->
-        <div class="product-card">
-            <img src="https://www.simplypsychology.org/wp-content/uploads/anxiety-self-help.jpg" alt="Anxiety Self Help Tool">
-            <div class="product-info">
-                <h3>Anxiety Self Help Tool</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/anxiety-self-help-tool.html" class="add-to-cart-btn">See More</a>
+            <!-- Anxiety Self Help Tool -->
+            <div class="product-card">
+                <img src="https://www.simplypsychology.org/wp-content/uploads/anxiety-self-help.jpg" alt="Anxiety Self Help Tool">
+                <div class="product-info">
+                    <h3>Anxiety Self Help Tool</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/anxiety-self-help-tool.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Budgeting Guide -->
-        <div class="product-card">
-            <img src="https://www.weareteachers.com/wp-content/uploads/budgeting-activities-worksheets.jpg" alt="Budgeting Guide">
-            <div class="product-info">
-                <h3>Budgeting Guide</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/budgeting-guide.html" class="add-to-cart-btn">See More</a>
+            <!-- Budgeting Guide -->
+            <div class="product-card">
+                <img src="https://www.weareteachers.com/wp-content/uploads/budgeting-activities-worksheets.jpg" alt="Budgeting Guide">
+                <div class="product-info">
+                    <h3>Budgeting Guide</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/budgeting-guide.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Cognitive Exercise Program -->
-        <div class="product-card">
-            <img src="https://www.yourtherapysource.com/wp-content/uploads/2019/04/Occupational-Therapy-Activity-Packet-from-YTS-FB.jpg" alt="Cognitive Exercise Program">
-            <div class="product-info">
-                <h3>Cognitive Exercise Program</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/cognitive-exercise-program.html" class="add-to-cart-btn">See More</a>
+            <!-- Cognitive Exercise Program -->
+            <div class="product-card">
+                <img src="https://www.yourtherapysource.com/wp-content/uploads/2019/04/Occupational-Therapy-Activity-Packet-from-YTS-FB.jpg" alt="Cognitive Exercise Program">
+                <div class="product-info">
+                    <h3>Cognitive Exercise Program</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/cognitive-exercise-program.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Developing Co-ordination -->
-        <div class="product-card">
-            <img src="https://developlearngrow.com/wp-content/uploads/2024/02/Motor-Coordination-Activities-Occupational-Therapy-1.png" alt="Developing Co-ordination">
-            <div class="product-info">
-                <h3>Developing Co-ordination</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/developing-co-ordination.html" class="add-to-cart-btn">See More</a>
+            <!-- Developing Co-ordination -->
+            <div class="product-card">
+                <img src="https://developlearngrow.com/wp-content/uploads/2024/02/Motor-Coordination-Activities-Occupational-Therapy-1.png" alt="Developing Co-ordination">
+                <div class="product-info">
+                    <h3>Developing Co-ordination</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/developing-co-ordination.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Fine Motor Skills -->
-        <div class="product-card">
-            <img src="https://www.yourtherapysource.com/wp-content/uploads/2020/03/50-Fine-Motor-Occupational-Therapy-Activities-at-Home.jpg" alt="Fine Motor Skills">
-            <div class="product-info">
-                <h3>Fine Motor Skills</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/fine-motor-skills.html" class="add-to-cart-btn">See More</a>
+            <!-- Fine Motor Skills -->
+            <div class="product-card">
+                <img src="https://www.yourtherapysource.com/wp-content/uploads/2020/03/50-Fine-Motor-Occupational-Therapy-Activities-at-Home.jpg" alt="Fine Motor Skills">
+                <div class="product-info">
+                    <h3>Fine Motor Skills</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/fine-motor-skills.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Games to Boost Executive Functioning Skills -->
-        <div class="product-card">
-            <img src="https://i0.wp.com/www.thepathway2success.com/wp-content/uploads/2017/09/Games-that-Teach-Executive-Functioning.jpg?fit=1498%2C787&ssl=1" alt="Games to Boost Executive Functioning Skills">
-            <div class="product-info">
-                <h3>Games to Boost Executive Functioning Skills</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/games-executive-functioning.html" class="add-to-cart-btn">See More</a>
+            <!-- Games to Boost Executive Functioning Skills -->
+            <div class="product-card">
+                <img src="https://i0.wp.com/www.thepathway2success.com/wp-content/uploads/2017/09/Games-that-Teach-Executive-Functioning.jpg?fit=1498%2C787&ssl=1" alt="Games to Boost Executive Functioning Skills">
+                <div class="product-info">
+                    <h3>Games to Boost Executive Functioning Skills</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/games-executive-functioning.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Hand Dominance -->
-        <div class="product-card">
-            <img src="https://www.wikihow.com/images/thumb/6/6c/Determine-Your-Dominant-Hand-Step-12.jpg/v4-460px-Determine-Your-Dominant-Hand-Step-12.jpg" alt="Hand Dominance">
-            <div class="product-info">
-                <h3>Hand Dominance</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/hand-dominance.html" class="add-to-cart-btn">See More</a>
+            <!-- Hand Dominance -->
+            <div class="product-card">
+                <img src="https://www.wikihow.com/images/thumb/6/6c/Determine-Your-Dominant-Hand-Step-12.jpg/v4-460px-Determine-Your-Dominant-Hand-Step-12.jpg" alt="Hand Dominance">
+                <div class="product-info">
+                    <h3>Hand Dominance</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/hand-dominance.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- How to Manage Anxiety -->
-        <div class="product-card">
-            <img src="https://premierpediatrictherapy.com/wp-content/uploads/2023/09/01-Occupational-Therapy-and-Anxiety-Management-1080x600.jpg" alt="How to Manage Anxiety">
-            <div class="product-info">
-                <h3>How to Manage Anxiety</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/how-to-manage-anxiety.html" class="add-to-cart-btn">See More</a>
+            <!-- How to Manage Anxiety -->
+            <div class="product-card">
+                <img src="https://premierpediatrictherapy.com/wp-content/uploads/2023/09/01-Occupational-Therapy-and-Anxiety-Management-1080x600.jpg" alt="How to Manage Anxiety">
+                <div class="product-info">
+                    <h3>How to Manage Anxiety</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/how-to-manage-anxiety.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- How to Teach Cutting Skills -->
-        <div class="product-card">
-            <img src="https://www.buildingblockstherapy.com.au/wp-content/uploads/2020/09/Picture-1.png" alt="How to Teach Cutting Skills">
-            <div class="product-info">
-                <h3>How to Teach Cutting Skills</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/how-to-teach-cutting-skills.html" class="add-to-cart-btn">See More</a>
+            <!-- How to Teach Cutting Skills -->
+            <div class="product-card">
+                <img src="https://www.buildingblockstherapy.com.au/wp-content/uploads/2020/09/Picture-1.png" alt="How to Teach Cutting Skills">
+                <div class="product-info">
+                    <h3>How to Teach Cutting Skills</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/how-to-teach-cutting-skills.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- How to Teach Jumping Skills -->
-        <div class="product-card">
-            <img src="https://uplifttherapycenter.com/wp-content/uploads/2023/02/iStock-1210823382-scaled-1.jpg" alt="How to Teach Jumping Skills">
-            <div class="product-info">
-                <h3>How to Teach Jumping Skills</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/how-to-teach-jumping-skills.html" class="add-to-cart-btn">See More</a>
+            <!-- How to Teach Jumping Skills -->
+            <div class="product-card">
+                <img src="https://uplifttherapycenter.com/wp-content/uploads/2023/02/iStock-1210823382-scaled-1.jpg" alt="How to Teach Jumping Skills">
+                <div class="product-info">
+                    <h3>How to Teach Jumping Skills</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/how-to-teach-jumping-skills.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Internet Tips -->
-        <div class="product-card">
-            <img src="https://www.ofcom.org.uk/siteassets/resources/images/-news-centre/body-images/2024/safer-internet-day/saferinternettips.png" alt="Internet Tips">
-            <div class="product-info">
-                <h3>Internet Tips</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/internet-tips.html" class="add-to-cart-btn">See More</a>
+            <!-- Internet Tips -->
+            <div class="product-card">
+                <img src="https://www.ofcom.org.uk/siteassets/resources/images/-news-centre/body-images/2024/safer-internet-day/saferinternettips.png" alt="Internet Tips">
+                <div class="product-info">
+                    <h3>Internet Tips</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/internet-tips.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Learn to Play -->
-        <div class="product-card">
-            <img src="https://occupationaltherapy.com.au/wp-content/uploads/2023/05/Image-for-Art-of-Play-scaled.jpeg" alt="Learn to Play">
-            <div class="product-info">
-                <h3>Learn to Play</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/learn-to-play.html" class="add-to-cart-btn">See More</a>
+            <!-- Learn to Play -->
+            <div class="product-card">
+                <img src="https://occupationaltherapy.com.au/wp-content/uploads/2023/05/Image-for-Art-of-Play-scaled.jpeg" alt="Learn to Play">
+                <div class="product-info">
+                    <h3>Learn to Play</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/learn-to-play.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Motor Development -->
-        <div class="product-card">
-            <img src="https://occupationaltherapy.com.au/wp-content/uploads/2018/03/Screenshot-2024-11-12-133413.png" alt="Motor Development">
-            <div class="product-info">
-                <h3>Motor Development</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/motor-development.html" class="add-to-cart-btn">See More</a>
+            <!-- Motor Development -->
+            <div class="product-card">
+                <img src="https://occupationaltherapy.com.au/wp-content/uploads/2018/03/Screenshot-2024-11-12-133413.png" alt="Motor Development">
+                <div class="product-info">
+                    <h3>Motor Development</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/motor-development.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Nature and Sensory Processing -->
-        <div class="product-card">
-            <img src="https://autismspectrumnews.org/wp-content/uploads/2023/12/AdobeStock_597883476web.jpg" alt="Nature and Sensory Processing">
-            <div class="product-info">
-                <h3>Nature and Sensory Processing</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/nature-sensory-processing.html" class="add-to-cart-btn">See More</a>
+            <!-- Nature and Sensory Processing -->
+            <div class="product-card">
+                <img src="https://autismspectrumnews.org/wp-content/uploads/2023/12/AdobeStock_597883476web.jpg" alt="Nature and Sensory Processing">
+                <div class="product-info">
+                    <h3>Nature and Sensory Processing</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/nature-sensory-processing.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Postural Control -->
-        <div class="product-card">
-            <img src="https://i.ytimg.com/vi/bWwNLsAIPFY/maxresdefault.jpg" alt="Postural Control">
-            <div class="product-info">
-                <h3>Postural Control</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/postural-control.html" class="add-to-cart-btn">See More</a>
+            <!-- Postural Control -->
+            <div class="product-card">
+                <img src="https://i.ytimg.com/vi/bWwNLsAIPFY/maxresdefault.jpg" alt="Postural Control">
+                <div class="product-info">
+                    <h3>Postural Control</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/postural-control.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Pre Writing Skills Learning Booklet -->
-        <div class="product-card">
-            <img src="https://developlearngrow.com/wp-content/uploads/2022/11/Pre-Writing-Skills-in-Preschoolers-and-Kindergarteners.png" alt="Pre Writing Skills Learning Booklet">
-            <div class="product-info">
-                <h3>Pre Writing Skills Learning Booklet</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/pre-writing-skills-booklet.html" class="add-to-cart-btn">See More</a>
+            <!-- Pre Writing Skills Learning Booklet -->
+            <div class="product-card">
+                <img src="https://developlearngrow.com/wp-content/uploads/2022/11/Pre-Writing-Skills-in-Preschoolers-and-Kindergarteners.png" alt="Pre Writing Skills Learning Booklet">
+                <div class="product-info">
+                    <h3>Pre Writing Skills Learning Booklet</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/pre-writing-skills-booklet.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Pre Writing Skills Guide -->
-        <div class="product-card">
-            <img src="https://www.growinghandsonkids.com/wp-content/uploads/2018/02/prewriting-skills-checklist-collage.png" alt="Pre Writing Skills Guide">
-            <div class="product-info">
-                <h3>Pre Writing Skills Guide</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/pre-writing-skills-guide.html" class="add-to-cart-btn">See More</a>
+            <!-- Pre Writing Skills Guide -->
+            <div class="product-card">
+                <img src="https://www.growinghandsonkids.com/wp-content/uploads/2018/02/prewriting-skills-checklist-collage.png" alt="Pre Writing Skills Guide">
+                <div class="product-info">
+                    <h3>Pre Writing Skills Guide</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/pre-writing-skills-guide.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Primitive Reflexes -->
-        <div class="product-card">
-            <img src="https://tacanow.org/wp-content/uploads/2023/05/primitive_reflex_integration_chart_1.png" alt="Primitive Reflexes">
-            <div class="product-info">
-                <h3>Primitive Reflexes</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/primitive-reflexes.html" class="add-to-cart-btn">See More</a>
+            <!-- Primitive Reflexes -->
+            <div class="product-card">
+                <img src="https://tacanow.org/wp-content/uploads/2023/05/primitive_reflex_integration_chart_1.png" alt="Primitive Reflexes">
+                <div class="product-info">
+                    <h3>Primitive Reflexes</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/primitive-reflexes.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Benefits of Colouring -->
-        <div class="product-card">
-            <img src="https://framerusercontent.com/images/Q6KGIPGcriSnIH2bGQaLTa3Zpk8.jpg?width=1466&height=1004" alt="Benefits of Colouring">
-            <div class="product-info">
-                <h3>Benefits of Colouring</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/benefits-of-colouring.html" class="add-to-cart-btn">See More</a>
+            <!-- Benefits of Colouring -->
+            <div class="product-card">
+                <img src="https://framerusercontent.com/images/Q6KGIPGcriSnIH2bGQaLTa3Zpk8.jpg?width=1466&height=1004" alt="Benefits of Colouring">
+                <div class="product-info">
+                    <h3>Benefits of Colouring</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/benefits-of-colouring.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Safe Riding Guide -->
-        <div class="product-card">
-            <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=942898427878535" alt="Safe Riding Guide">
-            <div class="product-info">
-                <h3>Safe Riding Guide</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/safe-riding-guide.html" class="add-to-cart-btn">See More</a>
+            <!-- Safe Riding Guide -->
+            <div class="product-card">
+                <img src="https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=942898427878535" alt="Safe Riding Guide">
+                <div class="product-info">
+                    <h3>Safe Riding Guide</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/safe-riding-guide.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Resources for School Readiness -->
-        <div class="product-card">
-            <img src="https://childrenstherapy.ca/wp-content/uploads/2024/06/Blog-Photos.png" alt="Resources for School Readiness">
-            <div class="product-info">
-                <h3>Resources for School Readiness</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/school-readiness-resources.html" class="add-to-cart-btn">See More</a>
+            <!-- Resources for School Readiness -->
+            <div class="product-card">
+                <img src="https://childrenstherapy.ca/wp-content/uploads/2024/06/Blog-Photos.png" alt="Resources for School Readiness">
+                <div class="product-info">
+                    <h3>Resources for School Readiness</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/school-readiness-resources.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Sensory Regulation -->
-        <div class="product-card">
-            <img src="https://connectability.ca/wp-content/uploads/2020/07/OT-diagram.png" alt="Sensory Regulation">
-            <div class="product-info">
-                <h3>Sensory Regulation</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/sensory-regulation.html" class="add-to-cart-btn">See More</a>
+            <!-- Sensory Regulation -->
+            <div class="product-card">
+                <img src="https://connectability.ca/wp-content/uploads/2020/07/OT-diagram.png" alt="Sensory Regulation">
+                <div class="product-info">
+                    <h3>Sensory Regulation</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/sensory-regulation.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Sensory Spaces in School -->
-        <div class="product-card">
-            <img src="https://lirp.cdn-website.com/c19d8483/dms3rep/multi/opt/sensory-corner-4223e77e-640w.webp" alt="Sensory Spaces in School">
-            <div class="product-info">
-                <h3>Sensory Spaces in School</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/sensory-spaces-in-school.html" class="add-to-cart-btn">See More</a>
+            <!-- Sensory Spaces in School -->
+            <div class="product-card">
+                <img src="https://lirp.cdn-website.com/c19d8483/dms3rep/multi/opt/sensory-corner-4223e77e-640w.webp" alt="Sensory Spaces in School">
+                <div class="product-info">
+                    <h3>Sensory Spaces in School</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/sensory-spaces-in-school.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Strategies for Developing Good Learners -->
-        <div class="product-card">
-            <img src="https://developlearngrow.com/wp-content/uploads/2020/11/The-Sensory-Pyramid-of-Learning-1024x538.png" alt="Strategies for Developing Good Learners">
-            <div class="product-info">
-                <h3>Strategies for Developing Good Learners</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/strategies-good-learners.html" class="add-to-cart-btn">See More</a>
+            <!-- Strategies for Developing Good Learners -->
+            <div class="product-card">
+                <img src="https://developlearngrow.com/wp-content/uploads/2020/11/The-Sensory-Pyramid-of-Learning-1024x538.png" alt="Strategies for Developing Good Learners">
+                <div class="product-info">
+                    <h3>Strategies for Developing Good Learners</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/strategies-good-learners.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Ways to Improve Balance -->
-        <div class="product-card">
-            <img src="https://www.physio.co.uk/images/poor-balance/poor-balance1.jpg" alt="Ways to Improve Balance">
-            <div class="product-info">
-                <h3>Ways to Improve Balance</h3>
-                <p class="price">2.50 AED</p>
-                <a href="../product-specific-pages/ways-improve-balance.html" class="add-to-cart-btn">See More</a>
+            <!-- Ways to Improve Balance -->
+            <div class="product-card">
+                <img src="https://www.physio.co.uk/images/poor-balance/poor-balance1.jpg" alt="Ways to Improve Balance">
+                <div class="product-info">
+                    <h3>Ways to Improve Balance</h3>
+                    <p class="price">2.50 AED</p>
+                    <a href="product-specific-pages/ways-improve-balance.html" class="add-to-cart-btn">See More</a>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
     </section>
 
     <footer>
         <div class="footer-content">
             <p>© 2025 Occupational Therapy Resource Hub.</p>
-                <div class="footer-links">
-                <a href="../contact.html">Privacy Policy</a>
-                <a href="../contact.html">Terms of Service</a>
-                <a href="../contact.html">Contact</a>
+            <div class="footer-links">
+                <a href="contact.html">Privacy Policy</a>
+                <a href="contact.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
             </div>
         </div>
     </footer>
+
+    <!-- Floating Cart Button (visible on every page) -->
+    <a href="#" class="snipcart-checkout floating-cart-btn" aria-label="Open cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 4H6"></path>
+        </svg>
+        <span class="snipcart-items-count floating-cart-count"></span>
+    </a>
+
 </body>
 </html>
