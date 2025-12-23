@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Areas of Attention — OT Resource Hub</title>
+    <link rel="stylesheet" href="../styles.css">
+
+    <script>
+        window.SnipcartSettings = {
+            publicApiKey: 'MWU3MjEzYmQtYjk5My00MzQxLWEwNjgtYzJkMjJlZTRiOGE3NjM5MDE5NTc1MjM3NDgyMDE2',
+            addProductBehavior: 'none',
+            modalStyle: 'side'
+        };
+
+        (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+    </script>
+
+    <style>
+        /* Product detail styles */
+        .product-detail {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .carousel {
+            background: white;
+            border-radius: 20px;
+            padding: 0.6rem;
+            box-shadow: 0 12px 30px rgba(139,111,71,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 400ms ease;
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            display: block;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(0,0,0,0.06);
+            color: var(--deep-brown);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(139,111,71,0.08);
+        }
+
+        .carousel-btn.prev { left: 12px; }
+        .carousel-btn.next { right: 12px; }
+
+        .carousel-btn:focus { outline: 3px solid var(--mustard); }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.8rem;
+        }
+
+        .carousel-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #E9E3E0;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .carousel-dots .dot[aria-pressed="true"] { background: var(--terracotta); }
+
+        @media (max-width: 740px){
+            .carousel-slide img { height: 320px; }
+        }
+
+        .product-side {
+            background: white;
+            padding: 1.6rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(139,111,71,0.08);
+        }
+
+        .price { color: var(--terracotta); font-weight: 800; font-size: 1.6rem; margin: 0.6rem 0; }
+
+        .qty-controls { display:flex; align-items:center; gap:0.6rem; margin: 1rem 0; }
+        .qty-controls button { padding: 0.6rem 1rem; border-radius: 8px; border:1px solid #eee; background:#fff; cursor:pointer; }
+        .qty-controls input { width:64px; text-align:center; padding:0.6rem; border-radius:8px; border:1px solid #eee; }
+
+        .actions { display:flex; gap:0.8rem; align-items:center; margin-top:1rem; }
+
+        .btn-continue { background:transparent; border:1px solid var(--terracotta); color:var(--terracotta); padding:0.85rem 1.4rem; border-radius:12px; cursor:pointer; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/index.html" class="logo-link">
+                    <img src="/assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+                    <span class="logo-text">OT Resource Hub</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/resources.html">Resources</a></li>
+                <li><a href="/products.html">Shop</a></li>
+                <li><a href="/learning.html">Learning</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+
+            <a href="#" class="snipcart-checkout cart-button">Cart (<span class="snipcart-items-count"></span>)</a>
+        </nav>
+    </header>
+
+    <main class="product-detail container">
+        <section class="carousel" aria-label="Product image carousel" tabindex="0">
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-slide" data-index="0">
+                    <img src="https://www.developmentaltherapy.com/wp-content/uploads/2022/05/Sensory-Integration-Guide.jpg" alt="5 Areas of Attention preview 1">
+                </div>
+                <div class="carousel-slide" data-index="1">
+                    <img src="https://www.griffinot.com/wp-content/uploads/Sensory-Processing-Disorder-GriffinOT-Sensory-Integration-jpg.webp" alt="5 Areas of Attention preview 2">
+                </div>
+                <div class="carousel-slide" data-index="2">
+                    <img src="https://www.yourtherapysource.com/wp-content/uploads/2019/04/Occupational-Therapy-Activity-Packet-from-YTS-FB.jpg" alt="5 Areas of Attention preview 3">
+                </div>
+            </div>
+
+            <button class="carousel-btn prev" aria-label="Previous image">‹</button>
+            <button class="carousel-btn next" aria-label="Next image">›</button>
+
+            <div class="carousel-dots" role="tablist" aria-label="Select image" id="carousel-dots"></div>
+        </section>
+
+        <aside class="product-side">
+            <h1>5 Areas of Attention</h1>
+            <p class="price">2.50 AED</p>
+            <p>A concise guide to the five core areas that influence attention in children and strategies to support learning and engagement.</p>
+
+            <div style="margin-top:1rem"><strong>Includes:</strong> downloadable PDF, printable activities</div>
+
+            <div class="qty-controls">
+                <button id="qty-decrease" type="button" aria-label="Decrease">−</button>
+                <input id="qty-input" type="number" value="1" min="1" step="1">
+                <button id="qty-increase" type="button" aria-label="Increase">+</button>
+            </div>
+
+            <div class="actions">
+                <button id="add-to-cart" class="snipcart-add-item add-to-cart" 
+                    data-item-id="5-areas-of-attention"
+                    data-item-name="5 Areas of Attention"
+                    data-item-price="2.50"
+                    data-item-url="/product-specific-pages/5-areas-of-attention.html"
+                    data-item-description="Five areas that affect attention with strategies and activities."
+                    data-item-image="https://www.developmentaltherapy.com/wp-content/uploads/2022/05/Sensory-Integration-Guide.jpg"
+                    data-item-quantity="1"
+                >Add to cart</button>
+
+                <button id="continue-shopping" class="btn-continue">Continue shopping</button>
+            </div>
+
+            <p style="margin-top:1rem;color:#6D4C41;font-size:0.95rem">Projected cost: <strong id="projected">2.50 AED</strong></p>
+        </aside>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="terms_of_service.html">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        // Lightweight accessible carousel with autoplay, arrows, dots and swipe
+        (function(){
+            const track = document.getElementById('carousel-track');
+            const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+            const dotsContainer = document.getElementById('carousel-dots');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            const carouselEl = document.querySelector('.carousel');
+            const addBtn = document.getElementById('add-to-cart');
+
+            let index = 0;
+            const intervalMs = 4000;
+            let timer = null;
+            let startX = null;
+
+            function createDots(){
+                slides.forEach((s,i)=>{
+                    const b = document.createElement('button');
+                    b.className = 'dot';
+                    b.setAttribute('aria-label', 'Image ' + (i+1));
+                    b.setAttribute('aria-pressed', i===0 ? 'true' : 'false');
+                    b.addEventListener('click', ()=> goTo(i));
+                    dotsContainer.appendChild(b);
+                });
+            }
+
+            function updateDots(){
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((d,i)=> d.setAttribute('aria-pressed', i===index ? 'true' : 'false'));
+            }
+
+            function goTo(i){
+                index = (i + slides.length) % slides.length;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                updateDots();
+                updateDataImage();
+            }
+
+            function prev(){ goTo(index-1); }
+            function next(){ goTo(index+1); }
+
+            function startAuto(){ stopAuto(); timer = setInterval(next, intervalMs); }
+            function stopAuto(){ if(timer){ clearInterval(timer); timer = null; } }
+
+            function updateDataImage(){
+                try{
+                    const img = slides[index].querySelector('img');
+                    if(img && addBtn){ addBtn.setAttribute('data-item-image', img.src); }
+                }catch(e){/* ignore */}
+            }
+
+            // touch swipe
+            carouselEl.addEventListener('touchstart', (e)=>{ startX = e.changedTouches[0].clientX; stopAuto(); });
+            carouselEl.addEventListener('touchend', (e)=>{
+                if(startX==null) return; const dx = e.changedTouches[0].clientX - startX; if(Math.abs(dx) > 40){ dx < 0 ? next() : prev(); }
+                startX = null; startAuto();
+            });
+
+            // mouse pause/resume
+            carouselEl.addEventListener('mouseenter', stopAuto);
+            carouselEl.addEventListener('mouseleave', startAuto);
+
+            // keyboard
+            carouselEl.addEventListener('keydown', (e)=>{ if(e.key === 'ArrowLeft') prev(); if(e.key === 'ArrowRight') next(); });
+
+            prevBtn.addEventListener('click', ()=>{ prev(); });
+            nextBtn.addEventListener('click', ()=>{ next(); });
+
+            // init
+            createDots(); updateDots(); goTo(0); startAuto();
+        })();
+
+        // Quantity controls
+        const qtyInput = document.getElementById('qty-input');
+        document.getElementById('qty-increase').addEventListener('click', ()=>{ qtyInput.value = parseInt(qtyInput.value || 1) + 1; updateProjected(); });
+        document.getElementById('qty-decrease').addEventListener('click', ()=>{ qtyInput.value = Math.max(1, parseInt(qtyInput.value || 1) - 1); updateProjected(); });
+        qtyInput.addEventListener('input', ()=>{ if(qtyInput.value < 1) qtyInput.value = 1; updateProjected(); });
+
+        function getPrice(){ return parseFloat(2.50); }
+        function updateProjected(){ document.getElementById('projected').textContent = (getPrice()*parseInt(qtyInput.value)).toFixed(2) + ' AED'; }
+        updateProjected();
+
+        // Before adding to cart make sure Snipcart gets the right quantity and store a short summary to localStorage
+        const addBtn = document.getElementById('add-to-cart');
+        addBtn.addEventListener('click', (e)=>{
+            const q = parseInt(qtyInput.value || 1);
+            addBtn.setAttribute('data-item-quantity', q);
+            // store last product for "continue shopping" behaviour and site summary
+            localStorage.setItem('lastProduct', JSON.stringify({ id: addBtn.dataset.itemId, name: addBtn.dataset.itemName, price: addBtn.dataset.itemPrice, quantity: q }));
+        });
+
+        // Continue shopping: store, then redirect back to products
+        document.getElementById('continue-shopping').addEventListener('click', ()=>{
+            const q = parseInt(qtyInput.value || 1);
+            localStorage.setItem('lastProduct', JSON.stringify({ id: addBtn.dataset.itemId, name: addBtn.dataset.itemName, price: addBtn.dataset.itemPrice, quantity: q }));
+            window.location.href = '/products.html';
+        });
+    </script>
+
+</body>
+</html>
