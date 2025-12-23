@@ -47,6 +47,14 @@
         <p>Digital downloads, therapy tools, and sensory resources created by licensed OTs.</p>
     </section>
 
+    <div id="last-purchase-banner" style="display:none;" class="container" data-testid="last-purchase">
+        <div style="background:white;border-radius:14px;padding:1rem;box-shadow:0 12px 30px rgba(139,111,71,0.06);display:flex;justify-content:space-between;align-items:center;gap:1rem;">
+            <div><strong id="lp-name"></strong> — <span id="lp-qty"></span> × <span id="lp-price"></span></div>
+            <div>Projected cost: <strong id="lp-total"></strong></div>
+            <div><button id="lp-checkout" class="btn-primary">Re-add &amp; Checkout</button></div>
+        </div>
+    </div>
+
     <section class="products-section">
         <div class="products-grid">
 
@@ -343,6 +351,50 @@
         </svg>
         <span class="snipcart-items-count floating-cart-count"></span>
     </a>
+
+    <script>
+        (function(){
+            function showLast(){
+                const raw = localStorage.getItem('lastProduct');
+                if(!raw) return;
+                try{
+                    const p = JSON.parse(raw);
+                    document.getElementById('lp-name').textContent = p.name;
+                    document.getElementById('lp-qty').textContent = p.quantity;
+                    document.getElementById('lp-price').textContent = parseFloat(p.price).toFixed(2) + ' AED';
+                    document.getElementById('lp-total').textContent = (parseFloat(p.price) * parseInt(p.quantity)).toFixed(2) + ' AED';
+                    document.getElementById('last-purchase-banner').style.display = 'block';
+                }catch(e){ console.warn(e) }
+            }
+
+            document.addEventListener('DOMContentLoaded', showLast);
+            window.addEventListener('storage', showLast);
+
+            // Re-add the last product to the Snipcart cart and open checkout
+            const checkoutBtn = document.getElementById('lp-checkout');
+            if(checkoutBtn){
+                checkoutBtn.addEventListener('click', function(){
+                    const raw = localStorage.getItem('lastProduct'); if(!raw) return;
+                    try{
+                        const p = JSON.parse(raw);
+                        let t = document.getElementById('lp-add-temp');
+                        if(!t){ t = document.createElement('button'); t.id = 'lp-add-temp'; t.className = 'snipcart-add-item'; t.style.display = 'none'; document.body.appendChild(t); }
+                        t.setAttribute('data-item-id', p.id);
+                        t.setAttribute('data-item-name', p.name);
+                        t.setAttribute('data-item-price', p.price);
+                        t.setAttribute('data-item-quantity', p.quantity);
+                        t.setAttribute('data-item-url', '/products.html');
+
+                        // trigger add
+                        t.click();
+
+                        // wait a little for snipcart to add then open checkout
+                        setTimeout(()=>{ document.querySelector('.snipcart-checkout').click(); }, 700);
+                    }catch(e){ console.warn(e) }
+                });
+            }
+        })();
+    </script>
 
 </body>
 </html>
