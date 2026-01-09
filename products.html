@@ -7,49 +7,18 @@
     <title>Shop Products - OT Resource Hub</title>
     <link rel="stylesheet" href="styles.css">
 
-    <script>
-        window.SnipcartSettings = {
-            publicApiKey: 'MWU3MjEzYmQtYjk5My00MzQxLWEwNjgtYzJkMjJlZTRiOGE3NjM5MDE5NTc1MjM3NDgyMDE2',
-            addProductBehavior: 'none',
-            modalStyle: 'side'  // Nice slide-in cart instead of full overlay
-        };
-
-        (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
-    </script>
-</head>
 <body>
+  <div id="shared-header"></div>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <a href="index.html" class="logo-link">
-                    <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
-                    <span class="logo-text">OT Resource Hub</span>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="products.html">Shop</a></li>
-                <li><a href="learning.html">Learning</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+  <script src="/snipcart-setup.js"></script>
+  <script src="/currency.js"></script>
 
-            <!-- Updated header cart button -->
-            <a href="#" class="snipcart-checkout cart-button">
-                Cart (<span class="snipcart-items-count"></span>)
-            </a>
-
-            <!-- Currency Switcher - placed inside navbar for better layout -->
-            <div class="currency-switcher">
-                <label for="currency-select">Currency:</label>
-                <select id="currency-select">
-                    <option value="AUD">AUD</option>
-                    <option value="AED">AED</option>
-                </select>
-            </div>
-        </nav>
-    </header>
+  <script>
+    // Load shared header
+    fetch('/header.html')
+      .then(r => r.text())
+      .then(html => document.getElementById('shared-header').innerHTML = html);
+  </script>
 
     <section class="products-hero">
         <h1>Shop Our Products</h1>
