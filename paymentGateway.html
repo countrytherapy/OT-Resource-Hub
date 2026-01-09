@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="assets/Logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlock Premium Access – OT Resource Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    .payment-hero {
+      background: linear-gradient(135deg, var(--terracotta), #E68A6B);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      border-radius: 0;
+    }
+
+    .payment-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .payment-hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      opacity: 0.95;
+    }
+
+    .payment-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .pricing-card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 2px solid #f0f0f0;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(217, 119, 87, 0.2);
+      border-color: var(--terracotta);
+    }
+
+    .pricing-card.popular {
+      border-color: var(--terracotta);
+      background: linear-gradient(135deg, rgba(217, 119, 87, 0.05), rgba(230, 138, 107, 0.05));
+    }
+
+    .pricing-card.popular::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--terracotta);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.8rem;
+      color: var(--deep-brown);
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .pricing-card .price {
+      font-size: 2.5rem;
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card .price span {
+      font-size: 1rem;
+      color: #999;
+    }
+
+    .pricing-card .period {
+      color: #999;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .pricing-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .pricing-card li {
+      padding: 0.8rem 0;
+      color: #555;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+    }
+
+    .pricing-card li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-card li::before {
+      content: '✓';
+      color: var(--terracotta);
+      font-weight: 700;
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .pricing-card .btn-primary {
+      width: 100%;
+      margin-top: 2rem;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .pricing-card.popular .btn-primary {
+      background: linear-gradient(135deg, var(--terracotta), #E68A6B);
+    }
+
+    .features-list {
+      background: var(--light-beige);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .features-list h2 {
+      font-size: 2rem;
+      color: var(--deep-brown);
+      margin-bottom: 2rem;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-item {
+      text-align: center;
+    }
+
+    .feature-item .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1.2rem;
+      color: var(--deep-brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .payment-methods {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      margin-bottom: 3rem;
+    }
+
+    .payment-methods h3 {
+      font-size: 1.5rem;
+      color: var(--deep-brown);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .payment-option {
+      padding: 1.5rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .payment-option:hover,
+    .payment-option.selected {
+      border-color: var(--terracotta);
+      background: rgba(217, 119, 87, 0.05);
+      color: var(--terracotta);
+    }
+
+    .faq-section {
+      margin-top: 4rem;
+    }
+
+    .faq-section h2 {
+      font-size: 2rem;
+      color: var(--deep-brown);
+      margin-bottom: 2rem;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 15px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      background: var(--light-beige);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--deep-brown);
+      user-select: none;
+    }
+
+    .faq-question:hover {
+      background: rgba(217, 119, 87, 0.08);
+    }
+
+    .faq-toggle {
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    .faq-item.open .faq-answer {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+
+    .security-notice {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(217, 119, 87, 0.1);
+      border-radius: 15px;
+      margin-top: 3rem;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .security-notice .lock-icon {
+      font-size: 1.5rem;
+      color: var(--terracotta);
+      margin-right: 0.5rem;
+    }
+
+    /* Snipcart integration styles */
+    .snipcart-item {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .payment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-hero h1 {
+        font-size: 2rem;
+      }
+
+      .pricing-card {
+        padding: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html" class="logo-link">
+          <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+          <span class="logo-text">OT Resource Hub</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="learning.html">Learning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="payment-hero">
+    <h1>Unlock Premium Access</h1>
+    <p>Get unlimited access to our expert-led courses, exclusive resources, and therapeutic tools designed by occupational therapists.</p>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <div class="payment-container">
+
+    <!-- PRICING CARDS -->
+    <section class="payment-grid">
+      <!-- Monthly Plan -->
+      <div class="pricing-card">
+        <h3>Monthly</h3>
+        <div class="price">$29<span>/month</span></div>
+        <p class="period">Billed monthly, cancel anytime</p>
+        <ul>
+          <li>All Learning Courses</li>
+          <li>Resource Library Access</li>
+          <li>Expert Videos</li>
+          <li>Monthly Updates</li>
+          <li>Email Support</li>
+        </ul>
+        <button class="btn-primary snipcart-add-item" 
+          data-item-id="monthly-premium" 
+          data-item-name="Monthly Premium Access" 
+          data-item-price="29.00"
+          data-item-url="https://www.otresourceshub.com/paymentGateway.html"
+          data-item-image="assets/Logo.png"
+          data-item-description="Monthly subscription to unlock all learning courses and resources">
+          Subscribe Now
+        </button>
+      </div>
+
+      <!-- Annual Plan (Popular) -->
+      <div class="pricing-card popular">
+        <h3>Annual</h3>
+        <div class="price">$249<span>/year</span></div>
+        <p class="period">Save $99 vs monthly</p>
+        <ul>
+          <li>All Learning Courses</li>
+          <li>Resource Library Access</li>
+          <li>Expert Videos</li>
+          <li>Priority Updates</li>
+          <li>Priority Email Support</li>
+          <li>Exclusive Webinars</li>
+        </ul>
+        <button class="btn-primary snipcart-add-item" 
+          data-item-id="annual-premium" 
+          data-item-name="Annual Premium Access" 
+          data-item-price="249.00"
+          data-item-url="https://www.otresourceshub.com/paymentGateway.html"
+          data-item-image="assets/Logo.png"
+          data-item-description="Annual subscription to unlock all learning courses and resources">
+          Subscribe Now
+        </button>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-list">
+      <h2>What's Included</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="icon">📚</div>
+          <h4>Complete Courses</h4>
+          <p>Access all mini-courses created by pediatric occupational therapists</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">🎥</div>
+          <h4>Video Library</h4>
+          <p>Step-by-step therapeutic demonstrations and expert tutorials</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">📄</div>
+          <h4>Resource Materials</h4>
+          <p>Downloadable guides, activity sheets, and printables</p>
+        </div>
+        <div class="feature-item">
+          <div class="icon">♻️</div>
+          <h4>Regular Updates</h4>
+          <p>New content added monthly to keep your toolkit fresh</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I need to create an account?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes, you'll need to create an account to access your premium content. This also allows us to save your progress and customize your learning experience.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I cancel my subscription anytime?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Absolutely! You can cancel your subscription at any time with no penalties. If you cancel, you'll retain access until the end of your billing period.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Is my payment information secure?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes, all payments are processed securely through Snipcart, a trusted payment processor that uses industry-standard encryption and fraud protection.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What payment methods do you accept?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          We accept all major credit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, and Google Pay for your convenience.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Do I get a refund if I'm not satisfied?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          We offer a 14-day money-back guarantee if you're not completely satisfied with your subscription. No questions asked.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I upgrade from monthly to annual?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes! You can upgrade your plan at any time. We'll prorate your billing to reflect the change, so you only pay the difference.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECURITY NOTICE -->
+    <div class="security-notice">
+      <span class="lock-icon">🔒</span>
+      <span>Your payment and personal information are secure and encrypted. We never store credit card details on our servers.</span>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms_of_service.html">Terms of Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Snipcart Configuration -->
+  <script>
+    window.SnipcartSettings = {
+        publicApiKey: 'MWU3MjEzYmQtYjk5My00MzQxLWEwNjgtYzJkMjJlZTRiOGE3NjM5MDE5NTc1MjM3NDgyMDE2',
+        loadStrategy: 'on-user-interaction',
+        modalStyle: 'side',
+    };
+
+    (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+  </script>
+
+  <!-- FAQ Toggle Script -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', function() {
+        const item = this.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+  <!-- Payment Handler: Handle Snipcart payment completion -->
+  <script type="module" src="payment-handler.js"></script>
+
+</body>
+</html>

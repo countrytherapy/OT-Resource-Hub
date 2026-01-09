@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="assets/Logo.png" type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Confirmed – OT Resource Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    .success-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(217, 119, 87, 0.1), rgba(230, 138, 107, 0.1));
+      padding: 2rem;
+    }
+
+    .success-card {
+      background: white;
+      border-radius: 20px;
+      padding: 4rem 3rem;
+      box-shadow: 0 20px 60px rgba(217, 119, 87, 0.15);
+      text-align: center;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .success-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .success-card h1 {
+      font-size: 2.5rem;
+      color: var(--deep-brown);
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .success-card p {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .success-details {
+      background: var(--light-beige);
+      border-radius: 15px;
+      padding: 2rem;
+      margin: 2rem 0;
+      text-align: left;
+    }
+
+    .success-details h3 {
+      font-size: 1.2rem;
+      color: var(--deep-brown);
+      margin-bottom: 1rem;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #ddd;
+      color: #666;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-row strong {
+      color: var(--deep-brown);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-direction: column;
+    }
+
+    .button-group a {
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary-link {
+      background: linear-gradient(135deg, var(--terracotta), #E68A6B);
+      color: white;
+      border: none;
+      display: inline-block;
+    }
+
+    .btn-primary-link:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(217, 119, 87, 0.3);
+    }
+
+    .btn-secondary-link {
+      background: transparent;
+      color: var(--terracotta);
+      border: 2px solid var(--terracotta);
+      display: inline-block;
+    }
+
+    .btn-secondary-link:hover {
+      background: var(--terracotta);
+      color: white;
+    }
+
+    .next-steps {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: rgba(217, 119, 87, 0.08);
+      border-left: 4px solid var(--terracotta);
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .next-steps h4 {
+      color: var(--deep-brown);
+      margin-bottom: 1rem;
+    }
+
+    .next-steps ol {
+      margin: 0;
+      padding-left: 1.5rem;
+      color: #666;
+    }
+
+    .next-steps li {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .success-card {
+        padding: 2rem;
+      }
+
+      .success-card h1 {
+        font-size: 1.8rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .button-group a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html" class="logo-link">
+          <img src="assets/Logo.png" alt="OT Resource Hub Logo" class="logo-img">
+          <span class="logo-text">OT Resource Hub</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="learning.html">Learning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SUCCESS CARD -->
+  <main class="success-page">
+    <div class="success-card">
+      <span class="success-icon">✓</span>
+      <h1>Payment Confirmed!</h1>
+      <p>Welcome to your premium membership! Your subscription is now active, and you have full access to all our courses and resources.</p>
+
+      <div class="success-details">
+        <h3>Subscription Details</h3>
+        <div class="detail-row">
+          <span>Status:</span>
+          <strong>Active</strong>
+        </div>
+        <div class="detail-row">
+          <span>Access Level:</span>
+          <strong>Premium Member</strong>
+        </div>
+        <div class="detail-row">
+          <span>Next Billing:</span>
+          <strong id="next-billing">Processing...</strong>
+        </div>
+      </div>
+
+      <div class="next-steps">
+        <h4>What's Next?</h4>
+        <ol>
+          <li>Explore our complete course library</li>
+          <li>Access expert-led videos and tutorials</li>
+          <li>Download therapeutic guides and activities</li>
+          <li>Join our community of therapists</li>
+        </ol>
+      </div>
+
+      <div class="button-group">
+        <a href="/learning.html" class="btn-primary-link">Start Learning Now</a>
+        <a href="/resources.html" class="btn-secondary-link">Browse Resources</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 Occupational Therapy Resource Hub. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms_of_service.html">Terms of Service</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Display billing information
+    document.addEventListener('DOMContentLoaded', function() {
+      const nextBillingEl = document.getElementById('next-billing');
+      const paymentData = localStorage.getItem('lastPayment');
+      
+      if (paymentData) {
+        const payment = JSON.parse(paymentData);
+        const expiryDate = new Date(payment.expiryDate);
+        nextBillingEl.textContent = expiryDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+      
+      // Auto-redirect to learning after 5 seconds if user was coming from payment
+      const wasPaymentPage = document.referrer.includes('paymentGateway');
+      if (wasPaymentPage) {
+        setTimeout(() => {
+          window.location.href = '/learning.html';
+        }, 5000);
+      }
+    });
+  </script>
+
+</body>
+</html>

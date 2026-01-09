@@ -163,7 +163,7 @@
     <div class="modal-content">
       <h2>Log In Required</h2>
       <p>Sign in or create a free account to access this course and all our learning content.</p>
-      <a href="user_templates/login.html" class="btn btn-secondary">Log In</a>
+      <a href="user_templates/login.html" class="btn btn-secondary">Access Now</a>
       <br><br>
       <a href="user_templates/register.html" class="btn btn-secondary">Create Free Account</a>
       <br><br>
@@ -171,58 +171,93 @@
     </div>
   </div>
 
-  <!-- Supabase Auth Script -->
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+   <!-- Payment Modal -->
+  <div id="payment-modal" class="payment-modal">
+    <div class="modal-content">
+      <h2>Unlock This Mini-Course</h2>
+      <p>All our expert-led courses are just <strong>$29</strong> one-time payment.<br>Instant access after secure checkout – no subscription needed.</p>
+      
+      <!-- REPLACE WITH YOUR REAL STRIPE PAYMENT LINK -->
+      <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK_HERE" target="_blank" class="btn btn-primary">
+        Pay Now – $29
+      </a>
+      <br><br>
+      <button id="close-modal" style="background:none;border:none;font-size:20px;cursor:pointer;color:#999;">✕ Close</button>
+    </div>
+  </div>
 
-  const supabase = createClient(
-    'https://ymtamonkaajuxxwcslbg.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InltdGFtb25rYWFqdXh4d2NzbGJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUzMjg1ODUsImV4cCI6MjA4MDkwNDU4NX0.dSZ0vvTE0Y2MbUHPnrsviMYGi_us7jf2Kr2R6Os195E'
-  );
-
-  const modal = document.getElementById('login-prompt-modal');
-  const closeBtn = document.getElementById('close-modal');
-
-  // Close modal when clicking the X
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('visible');
-  });
-
-  // Close modal when clicking outside content
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('visible');
+  <!-- CSS for the modal (make sure this is in your <head> or styles.css) -->
+  <style>
+    .payment-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-  });
+    .payment-modal.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-content {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .modal-content h2 {
+      margin: 0 0 15px;
+      font-size: 28px;
+    }
+    .modal-content p {
+      margin: 0 0 25px;
+      color: #555;
+    }
+    .modal-content .btn-primary {
+      margin: 10px 0;
+      padding: 12px 30px;
+      font-size: 18px;
+      display: inline-block;
+    }
+  </style>
 
-  // === MOVE checkLogin() ABOVE HERE ===
-  async function checkLogin() {
-    const { data: { session } } = await supabase.auth.getSession();
-    return !!session;
-  }
+  <!-- Fixed JavaScript – this makes the close button work perfectly -->
+  <script>
+    const modal = document.getElementById('payment-modal');
+    const closeBtn = document.getElementById('close-modal');
 
-  // Now set up the course buttons (uses checkLogin safely)
-  document.querySelectorAll('.course-btn').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      e.preventDefault(); // Prevent navigation
-      const isLoggedIn = await checkLogin();
+    // Close when clicking the ✕ button
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('visible');
+    });
 
-      if (isLoggedIn) {
-        // Logged in → go to the course
-        window.location.href = btn.getAttribute('href');
-      } else {
-        // Not logged in → show modal
-        modal.classList.add('visible');
+    // Close when clicking outside the white content box
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('visible');
       }
     });
-  });
 
-  // Re-check on auth state change (optional, in case user logs in elsewhere)
-  supabase.auth.onAuthStateChange(async (event, session) => {
-    if (session) {
-      modal.classList.remove('visible'); // Hide modal if they just logged in
-    }
-  });
-</script>
+    // Show modal when clicking any course button (with class course-btn)
+    document.querySelectorAll('.course-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('visible');
+      });
+    });
+  </script>
+
+  <!-- Auth Guard: Ensure user is logged in and has paid -->
+  <script type="module" src="auth-guard.js"></script>
+
+  <!-- Payment Handler: Handle Snipcart payment completion -->
+  <script type="module" src="payment-handler.js"></script>
 </body>
 </html>
